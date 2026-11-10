@@ -1,16 +1,16 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
-const SITE_HOST = 'borderlands3cheats.com';
+const SITE_HOST = 'caliber-cheats.com';
 const SITE_URL = `https://${SITE_HOST}`;
 
 const INDEXABLE_MONEY_ROUTES = [
   '/',
-  '/pricing/',
-  '/cloud-dma/',
-  '/hwid-spoofer/',
-  '/guides/cloud-dma-setup/',
-  '/guides/borderlands-3-cheat-system-requirements/',
+  '/caliber-esp/',
+  '/caliber-aimbot/',
+  '/caliber-cheats-price/',
+  '/caliber-cheats-review/',
+  '/guides/caliber-sard-anti-cheat/',
   '/faq/',
 ];
 
@@ -47,8 +47,29 @@ function checkPage(route) {
     errors.push(`${route}: og:image:height must be 630`);
   }
 
+  if (!html.includes('name="twitter:image"')) {
+    errors.push(`${route}: missing twitter:image`);
+  }
+
+  if (html.includes('hreflang=')) {
+    errors.push(`${route}: hreflang must not be present (en-US single-locale site)`);
+  }
+
   if (!html.includes(`${SITE_URL}/og/`)) {
     errors.push(`${route}: og:image must use ${SITE_URL}/og/*.jpg`);
+  }
+
+  if (
+    route !== '/faq/' &&
+    (html.includes('"@type":"FAQPage"') || html.includes('"@type": "FAQPage"'))
+  ) {
+    errors.push(`${route}: FAQPage JSON-LD must not appear on money pages (use /faq/ only)`);
+  }
+
+  if (route === '/') {
+    if (!html.includes(`${SITE_URL}/#product`)) {
+      errors.push(`${route}: home must include Product @id ${SITE_URL}/#product`);
+    }
   }
 
   if (html.includes('name="keywords"')) {
@@ -112,14 +133,21 @@ if (!fs.existsSync(sitemapPath)) {
   if (!sitemap.includes('<?xml-stylesheet')) {
     errors.push('sitemap.xml must reference sitemap.css stylesheet');
   }
-  if (sitemap.includes('dotacheats.com')) {
-    errors.push('sitemap.xml must not reference dotacheats.com');
+  if (sitemap.includes('example.com')) {
+    errors.push('sitemap.xml must not reference example.com');
   }
 }
 
 const robots = fs.readFileSync(path.join(process.cwd(), 'public', 'robots.txt'), 'utf8');
 if (!robots.includes(`Sitemap: ${SITE_URL}/sitemap.xml`)) {
   errors.push('robots.txt must point to apex sitemap');
+}
+
+const faqHtml = readHtml('/faq/');
+if (faqHtml) {
+  if (!faqHtml.includes('"@type":"FAQPage"') && !faqHtml.includes('"@type": "FAQPage"')) {
+    errors.push('/faq/: must include FAQPage JSON-LD');
+  }
 }
 
 if (errors.length) {

@@ -1,40 +1,55 @@
 import { checkoutPath } from '../config/checkout';
 import { MONTHLY_ACCESS_DAYS } from './productPricing';
+import { PRICE_LAST_VERIFIED } from './site';
+import { caliberPricing } from '../content/caliber-pages';
 
-/** Shared disclaimer — independent of Gearbox / 2K. */
 export const PUBLISHER_DISCLAIMER =
-  'Borderlands 3 Cheats is an independent site and is not affiliated with, endorsed by, or sponsored by the game publisher or its licensors. Borderlands 3 is used only as a descriptive reference to the supported game.';
+  'Caliber Cheats (caliber-cheats.com) is independent and is not affiliated with, endorsed by, or sponsored by the Caliber game publisher or its licensors. "Caliber" is used only to describe software compatibility with the game.';
 
 export const FEATURE_TOOL_DISCLAIMER =
-  'This product is a feature-based external cheat tool (ESP, soft aim, radar, recoil options)—not a traditional unlimited-health trainer or single-button god mode.';
+  'Third-party tools carry enforcement risk. We do not promise undetected status, bypass any anti-cheat (including SARD), or guarantee compatibility after game updates. Verify the seller listing before purchase.';
+
+export const ANTI_CHEAT_NOTICE =
+  'Caliber moved from Easy Anti-Cheat (EOS) toward SARD (per the October 6, 2025 publisher announcement). Do not treat outdated “EAC bypass” seller claims as current without verification.';
+
+export const HWID_COMPATIBILITY_NOTICE =
+  'HWID spoofer listings on our partner site do not specifically confirm Caliber or SARD support—confirm scope with the seller before buying.';
 
 export const CLOUD_DMA_ADDITIONAL_SERVICES = [
   {
     name: 'GREENWARD',
-    summary: 'Separate service required for Cloud DMA activation and routing (purchased outside this license).',
+    summary: 'Separate service required for Cloud DMA activation and routing (purchased outside the Cloud DMA license).',
   },
   {
     name: 'Static Server',
-    summary: 'Dedicated static server hosting component—priced and bought separately from the Cloud DMA license.',
+    summary: 'Dedicated static server hosting—priced and bought separately from the Cloud DMA license.',
   },
   {
     name: 'AWS',
-    summary: 'Amazon Web Services resources used in the Cloud DMA stack—ongoing or setup fees are not included in the $50 license.',
+    summary: 'AWS resources in the Cloud DMA stack—ongoing or setup fees are not included in the $50 license.',
   },
 ] as const;
 
-export const BL3_CHECKOUT = checkoutPath('borderlands3');
+export const BL3_CHECKOUT = checkoutPath('caliber');
 export const CLOUD_DMA_CHECKOUT = checkoutPath('cloudDma');
 export const HWID_SPOOFER_CHECKOUT = checkoutPath('hwidSpoofer');
 
 export const bl3ProductOffers = [
-  { name: 'Borderlands 3 Cheats — Monthly', priceUsd: 35, url: BL3_CHECKOUT },
-  { name: 'Borderlands 3 Cheats — Lifetime', priceUsd: 150, url: BL3_CHECKOUT },
+  {
+    name: `Caliber Cheats — Monthly (${caliberPricing.caliber.monthly.duration})`,
+    priceUsd: caliberPricing.caliber.monthly.price,
+    url: BL3_CHECKOUT,
+  },
+  {
+    name: `Caliber Cheats — ${caliberPricing.caliber.lifetime.duration}`,
+    priceUsd: caliberPricing.caliber.lifetime.price,
+    url: BL3_CHECKOUT,
+  },
 ] as const;
 
 export const cloudDmaOffer = {
   name: 'Cloud DMA infrastructure license (lifetime)',
-  priceUsd: 50,
+  priceUsd: caliberPricing.cloudDma.lifetime.price,
   url: CLOUD_DMA_CHECKOUT,
 } as const;
 
@@ -45,39 +60,38 @@ export const hwidSpooferOffer = {
 } as const;
 
 export const bl3Features = [
-  'Enemy ESP with health bars and distance readouts',
-  'Loot ESP with weapon rarity highlights',
-  'Soft aim with configurable FOV and smoothing',
-  'Radar overlay for nearby threats and pickups',
-  'Recoil control and related combat tuning options',
-  'In-game menu for toggles and configuration presets',
+  'Player ESP with loadout display',
+  'Weapon and gadget ESP',
+  'Radar overlay',
+  'Aimbot with smoothing',
+  'Auto-aim assistance and recoil control',
+  'Health and armor indicators',
+  'Stream-proof mode (per seller listing)',
 ] as const;
 
 export const bl3ClientRequirements = [
-  'Supported client: Steam / official Borderlands 3 PC client',
   'Windows 10 or Windows 11 (64-bit)',
-  'Minimum 8 GB RAM; dedicated GPU recommended',
-  'HVCI, Core Isolation, TPM, and Secure Boot configured as required for supported builds',
-  'Cloud DMA environment required for full functionality on supported builds',
+  'Cloud DMA environment required for full functionality on supported builds (separate product)',
+  'Latest game client updates may change compatibility—verify before launch',
+  'SARD anti-cheat is active on Caliber—no bypass claims on this site',
 ] as const;
 
 export const cloudDmaRequirements = [
   'Windows 10 or Windows 11 64-bit with Hyper-V capable edition',
   'CPU virtualization enabled in firmware and Windows',
   'Minimum 8 GB RAM; 16 GB recommended for the Hyper-V guest',
-  'Stable wired or wireless internet connection',
+  'Stable internet connection',
   'Secure Boot and Core Isolation settings compatible with Hyper-V setup',
 ] as const;
 
 export const monthlyPlanCopy = {
-  priceUsd: 35,
+  priceUsd: caliberPricing.caliber.monthly.price,
   durationLabel: `${MONTHLY_ACCESS_DAYS}-day access`,
-  renewal:
-    'Each monthly payment extends access for another 31-day period from activation or renewal. Cancel future renewals according to checkout terms.',
+  renewal: `Listed at $35 per 31-day period on our partner checkout (verified ${PRICE_LAST_VERIFIED}). Recheck before purchasing.`,
 } as const;
 
 export const lifetimePlanCopy = {
-  priceUsd: 150,
-  durationLabel: 'Lifetime access',
-  renewal: 'One-time payment for ongoing access to the Borderlands 3 cheat package while the product remains available.',
+  priceUsd: caliberPricing.caliber.lifetime.price,
+  durationLabel: 'Lifetime access (per seller terms)',
+  renewal: `Listed at $150 one-time on our partner checkout (verified ${PRICE_LAST_VERIFIED}). Availability may change when the seller updates offers.`,
 } as const;

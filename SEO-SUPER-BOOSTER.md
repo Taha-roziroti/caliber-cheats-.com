@@ -1,29 +1,29 @@
-# SEO Super Booster — Borderlands 3 Cheats (borderlands3cheats.com)
+# SEO Super Booster — Caliber Cheats (caliber-cheats.com)
 
-Implementation playbook for this Astro template. **CI-enforced** on `npm run build` via `scripts/verify-seo.mjs` and `scripts/verify-redirects.mjs`.
+Implementation playbook for this Astro site. **CI-enforced** on `npm run build` via `scripts/verify-seo.mjs` and `scripts/verify-redirects.mjs`.
 
 ## 1. Single canonical host
 
-- `SITE_URL` / `SITE_HOST` in `src/data/site.ts` → `https://borderlands3cheats.com` (apex, no `www`).
-- Deploy host (Cloudflare Pages `_redirects`, or `workers/site.js` / `functions/_middleware.js` if used) → **301** `www` → apex.
-- Every money page: self-referencing `rel=canonical`, `hreflang=en`, `hreflang=x-default` on the same apex URL.
+- `SITE_URL` / `SITE_HOST` in `src/data/site.ts` → `https://caliber-cheats.com` (apex, no `www`).
+- Deploy host (`public/_redirects` on Cloudflare Pages) → **301** `www` → apex.
+- Every money page: self-referencing `rel=canonical` on apex; `lang="en-US"` on `<html>` (no hreflang; single-locale US English).
 
 ## 2. Page-level metadata discipline
 
 - One `<h1>` per indexed money page; unique `<title>` and `meta description` sitewide (no duplicates).
 - `og:title` / `og:description` match `<title>` / description exactly.
-- `og:image` + `twitter:image` → `https://borderlands3cheats.com/og/*.jpg` at **1200×630** (`og:image:width` / `height`).
+- `og:image` + `twitter:image` → `https://caliber-cheats.com/og/*.jpg` at **1200×630** (`og:image:width` / `height`).
 - `rel=image_src` on all indexable money pages.
 - `robots`: `index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1`.
 - No `meta keywords`, no `SearchAction`, no keyword-list JSON-LD.
 
 ## 3. Structured data graph
 
-- Shared `@id` `https://borderlands3cheats.com/#product` on home and product JSON-LD (`PRODUCT_ID` in `src/data/site.ts`).
-- `Organization` + `WebSite` on every page (`siteIdentityGraph()` in `src/utils/siteIdentityGraph.ts`); `SITE_PURPOSE` states **Borderlands 3 PC** focus.
-- `SITE_ABOUT`: exactly **6** `knowsAbout` terms.
-- `FAQPage` JSON-LD **only** on `/faq/` (one graph). In-page FAQ sections in markdown are prose only—no duplicate `FAQPage`.
-- Optional (Apex template): `/reviews` with 8 `Review` nodes + `AggregateRating`—not required for BL3 CI.
+- Shared `@id` `https://caliber-cheats.com/#product` on home product JSON-LD (`PRODUCT_ID` in `src/data/site.ts`).
+- `Organization` + `WebSite` on every page (`siteIdentityGraph()` in `src/utils/siteIdentityGraph.ts`); `SITE_PURPOSE` states **Caliber PC** focus.
+- `SITE_ABOUT`: exactly **6** `knowsAbout` terms (via WebSite `about` array).
+- `FAQPage` JSON-LD **only** on `/faq/` (one graph). In-page FAQ blocks on money pages are prose/HTML only—no duplicate `FAQPage`.
+- Product/article/breadcrumb graphs on Caliber routes via `src/utils/contentPageJsonLd.ts` + `CALIBER_PAGE_SHELL`.
 
 ## 4. Intent map (not rendered as keywords)
 
@@ -31,58 +31,65 @@ Use `SEO_ROUTE_INTENTS` in `src/data/site.ts` when writing copy. Primary queries
 
 | Route | Focus |
 |-------|--------|
-| `/` | borderlands 3 cheats, ESP, soft aim, loot radar, PC |
-| `/pricing/` | borderlands 3 cheats price, monthly and lifetime plans |
-| `/cloud-dma/` | cloud dma license, Hyper-V, single-PC setup |
-| `/guides/cloud-dma-setup/` | cloud dma setup, virtualization, GREENWARD / Static Server / AWS |
-| `/guides/borderlands-3-cheat-system-requirements/` | borderlands 3 cheat requirements, Windows, Steam |
+| `/` | Caliber cheats, ESP, aimbot, pricing, Windows PC |
+| `/caliber-esp/` | Caliber ESP, wallhack, player ESP, weapon ESP, radar |
+| `/caliber-aimbot/` | Caliber aimbot, soft aim, recoil, aim assist |
+| `/caliber-cheats-price/` | Caliber cheats price, monthly and lifetime plans |
+| `/caliber-cheats-review/` | Caliber cheats review, feature comparison |
+| `/guides/caliber-sard-anti-cheat/` | Caliber SARD anti-cheat, EAC transition |
+| `/cloud-dma/` | Cloud DMA license, Hyper-V, single-PC setup |
+| `/guides/cloud-dma-setup/` | Cloud DMA setup, virtualization, GREENWARD / static server / AWS |
 | `/faq/` | pricing, Windows, Cloud DMA costs, delivery |
 
 ## 5. Media & thumbnails
 
-- Gameplay WebPs under `public/images/borderlands3/` (source masters + widths from `scripts/optimize-images.mjs`).
-- `npm run generate:seo-assets` (runs in `build`) writes `/og/*.jpg` from BL3 hero/screenshots.
-- Content figures and hero images: unique alts in markdown frontmatter and `src/data/media.ts` where used.
-- Legacy Dota assets remain for `/blog` and `/forum` (noindex where configured).
+- Caliber WebPs under `public/images/caliber/` (masters + responsive widths from `scripts/optimize-images.mjs`).
+- `npm run generate:seo-assets` (runs in `build` after optimize) writes `/og/*.jpg` from Caliber hero/screenshots.
+- Content figures: `src/data/caliberMedia.ts` + `imageAltText` in `src/content/caliber-pages/`; hero carousel via `caliberHeroSlides`.
+- Legacy Dota/blog/forum assets remain for retired routes; those paths get `noindex` in `BaseLayout.astro`.
 
 ## 6. Sitemap super-boost
 
 - Single `dist/sitemap.xml` urlset (not an index); regenerated by `scripts/generate-sitemaps.mjs` after build.
-- Every indexable URL includes ≥1 `image:image` (see `SITEMAP_IMAGES` in `src/data/site.ts`).
+- Every indexable URL includes ≥1 `image:image` (see `SITEMAP_IMAGES` in `src/data/site.ts`, mirrored in `scripts/generate-sitemaps.mjs`).
 - `<?xml-stylesheet href="/sitemap.css"?>` for human-readable view.
 - No duplicate hreflang in XML (HTML only).
 
 ## 7. Crawl rules
 
-- `public/robots.txt`: `Sitemap: https://borderlands3cheats.com/sitemap.xml`, explicit `Googlebot`.
-- Legacy blog/forum/product URLs: `noindex` in layout where applicable.
+- `public/robots.txt`: `Sitemap: https://caliber-cheats.com/sitemap.xml`, explicit `Googlebot`.
+- Legacy blog/forum/Dota product URLs: `noindex` in layout where applicable.
 
 ## 8. Keyword URL aliases (`public/_redirects` + `scripts/redirects.mjs`)
 
 301 commercial and legacy paths to money pages (verified by `verify-redirects.mjs`), e.g.:
 
-- `/buy-borderlands-3-cheats`, `/borderlands-3-cheats` → `/`
-- `/borderlands-3-cheats-price`, `/pricing` → `/pricing/`
+- `/buy-caliber-cheats`, `/caliber-hack`, `/borderlands-3-cheats` → `/`
+- `/pricing`, `/borderlands-3-cheats-price` → `/caliber-cheats-price/`
+- `/borderlands-3-esp` → `/caliber-esp/`
+- `/borderlands-3-aimbot` → `/caliber-aimbot/`
 - `/cloud-dma-setup` → `/guides/cloud-dma-setup/`
 - Legacy Dota paths → `/` or retired routes
+- Affiliate checkout: `/go/caliber/` → Zadeyo (302)
 
 ## 9. Build commands
 
 ```bash
-npm run generate:seo-assets   # OG JPEGs
-npm run optimize:images       # responsive WebPs
-npm run build                 # verify-redirects → assets → astro → sitemaps → verify-seo → indexnow
+npm run generate:seo-assets   # OG JPEGs (after responsive WebPs exist)
+npm run optimize:images         # responsive WebPs under public/images/caliber
+npm run build                 # verify-redirects → brand icons → optimize → seo-assets → astro → sitemaps → verify-seo → indexnow
 ```
 
 ## 10. Content pages
 
-- Markdown in `content/pages/*.md`; rendered by `src/components/content/ContentPage.astro`.
-- One markdown render per page (no split-body `render()`—Astro ignores overridden `body` on split entries).
+- **Money pages:** TypeScript in `src/content/caliber-pages/`; rendered by `CaliberDataPage.astro` / `HomeLanding.astro` + `CaliberPageArticle.astro`.
+- Legacy markdown in `content/pages/*.md` remains for retired Borderlands routes—not used for the six Caliber money URLs.
 - Cloud DMA additional-costs callout: component on product pages; inline HTML block in setup guide where mid-article placement is required.
 
 ## 11. Rebrand checklist (new game)
 
-1. Edit `src/data/site.ts` (URL, name, `SITE_PURPOSE`, `LISTED_PRICES`, intents, OG map).
-2. Replace `content/pages/*.md` and `public/images/<game>/`.
+1. Edit `src/data/site.ts` (URL, name, `SITE_PURPOSE`, `LISTED_PRICES`, intents, OG map, `SITEMAP_IMAGES`).
+2. Replace `src/content/caliber-pages/` copy and `public/images/<game>/`.
 3. Update `scripts/verify-seo.mjs` / `verify-redirects.mjs` routes and host if domain changes.
-4. `npm run build` until verification passes.
+4. Sync `scripts/generate-sitemaps.mjs` `SITEMAP_IMAGES` with `site.ts`.
+5. `npm run build` until verification passes.

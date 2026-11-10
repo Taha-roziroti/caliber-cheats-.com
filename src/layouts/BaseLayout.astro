@@ -30,6 +30,8 @@ interface Props {
   noindex?: boolean;
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
   logoAlt?: string;
+  /** Override pathname used for canonical/og:url (e.g. 404 → home). */
+  canonicalPath?: string;
 }
 
 const {
@@ -43,6 +45,7 @@ const {
   noindex = false,
   jsonLd,
   logoAlt,
+  canonicalPath,
 } = Astro.props;
 
 const pathname = Astro.url.pathname;
@@ -57,7 +60,7 @@ const robotsContent = resolvedNoindex
   ? 'noindex, nofollow'
   : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1';
 
-const canonical = canonicalUrl(pathname);
+const canonical = canonicalUrl(canonicalPath ?? pathname);
 const ogImageUrl = absoluteAssetUrl(ogImage);
 const identityGraph = siteIdentityGraph();
 const mergedJsonLd = jsonLd
@@ -75,7 +78,7 @@ const showShareLinks = sharePaths.has(pathname.endsWith('/') ? pathname : `${pat
 ---
 
 <!doctype html>
-<html lang="en" class="dark fonts-pending">
+<html lang="en-US" class="dark fonts-pending">
   <head>
     <meta charset="UTF-8" />
     <script is:inline>
@@ -92,8 +95,6 @@ const showShareLinks = sharePaths.has(pathname.endsWith('/') ? pathname : `${pat
     <meta name="theme-color" content="#0d0a14" />
     <link rel="canonical" href={canonical} />
     <link rel="image_src" href={ogImageUrl} />
-    <link rel="alternate" hreflang="en" href={canonical} />
-    <link rel="alternate" hreflang="x-default" href={canonical} />
     <link
       rel="alternate"
       type="application/rss+xml"

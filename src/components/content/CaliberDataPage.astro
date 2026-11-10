@@ -1,0 +1,153 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../Breadcrumbs.astro';
+import CheckoutProductPicker, { type CheckoutProductId } from '../borderlands3/CheckoutProductPicker.astro';
+import AdditionalCostsCallout from '../borderlands3/AdditionalCostsCallout.astro';
+import AffiliateDisclosure from '../AffiliateDisclosure.astro';
+import CaliberPageArticle from './CaliberPageArticle.astro';
+import SiteFaqSection from '../SiteFaqSection.astro';
+import { getCaliberPage } from '../../content/caliber-pages';
+import { CALIBER_PAGE_SHELL } from '../../content/caliber-page-shell';
+import { breadcrumbsForRoute, defaultEndCtaHref, jsonLdForContentPage } from '../../utils/contentPageJsonLd';
+import { faqsFromCaliberPage } from '../../utils/caliberPageFaq';
+import { Button } from '@/components/starwind/button';
+
+interface Props {
+  slug: string;
+}
+
+const { slug } = Astro.props;
+const page = getCaliberPage(slug);
+if (!page) {
+  throw new Error(`Caliber page not found for slug: ${slug}`);
+}
+
+const shell = CALIBER_PAGE_SHELL[slug];
+if (!shell) {
+  throw new Error(`Caliber page shell missing for slug: ${slug}`);
+}
+
+const breadcrumbs = breadcrumbsForRoute(slug);
+const jsonLd = jsonLdForContentPage({
+  route: slug,
+  seoTitle: page.seoTitle,
+  metaDescription: page.metaDescription,
+  schemaTypes: shell.schemaTypes,
+  articlePublished: shell.articlePublished,
+});
+const ctaHref = shell.endCtaHref ?? defaultEndCtaHref(slug, shell.checkout);
+const sidebarDefaultProduct: CheckoutProductId =
+  shell.checkout === 'cloud-dma'
+    ? 'cloud-dma'
+    : shell.checkout === 'hwid-spoofer'
+      ? 'hwid-spoofer'
+      : 'borderlands-3';
+const useProductShell = shell.layout === 'product' || shell.layout === 'pricing';
+const ogType = shell.layout === 'article' || shell.layout === 'pricing' ? 'article' : 'website';
+const pageFaqs = faqsFromCaliberPage(page, slug.replace(/\//g, '') || 'home');
+
+const logoAltByRoute: Record<string, string> = {
+  '/': 'Caliber Cheats – logo',
+  '/caliber-esp/': 'Caliber ESP – logo',
+  '/caliber-aimbot/': 'Caliber aimbot – logo',
+  '/caliber-cheats-price/': 'Caliber pricing – logo',
+  '/caliber-cheats-review/': 'Caliber review – logo',
+  '/guides/caliber-sard-anti-cheat/': 'Caliber SARD – logo',
+};
+const logoAlt = logoAltByRoute[slug];
+---
+
+<BaseLayout
+  title={page.seoTitle}
+  description={page.metaDescription}
+  jsonLd={jsonLd}
+  ogType={ogType}
+  ogImageAlt={page.imageAltText[0] ?? page.seoTitle}
+  articlePublishedTime={shell.articlePublished}
+  logoAlt={logoAlt}
+>
+  {
+    useProductShell && (shell.checkout || shell.layout === 'pricing') ? (
+      <section class="border-b border-border bg-muted/20 py-10 md:py-14">
+        <div class="mx-auto max-w-6xl px-5">
+          <Breadcrumbs items={breadcrumbs} class="mb-6 md:mb-8" />
+        </div>
+        <div class="mx-auto grid max-w-6xl items-start gap-10 px-5 lg:grid-cols-[1fr_minmax(18rem,22rem)]">
+          <div class="min-w-0">
+            <CaliberPageArticle page={page} />
+            <AffiliateDisclosure class="not-prose mt-6" />
+            <div class="not-prose mt-8 lg:hidden">
+              <CheckoutProductPicker defaultProduct={sidebarDefaultProduct} />
+            </div>
+          </div>
+          <div class="hidden lg:block lg:space-y-4">
+            <AffiliateDisclosure />
+            <CheckoutProductPicker defaultProduct={sidebarDefaultProduct} />
+          </div>
+        </div>
+      </section>
+    ) : (
+      <article class="border-b border-border bg-muted/20 py-10 md:py-14">
+        <div class="mx-auto max-w-6xl px-5">
+          <Breadcrumbs items={breadcrumbs} class="mb-6 md:mb-8" />
+          <AffiliateDisclosure class="not-prose mb-6 max-w-3xl" />
+          <div class="mt-2 max-w-3xl">
+            <CaliberPageArticle page={page} />
+          </div>
+        </div>
+      </article>
+    )
+  }
+
+  <SiteFaqSection
+    id="page-faq"
+    titleId="page-faq-title"
+    titleAs="h2"
+    items={pageFaqs}
+    showFilters={false}
+    class="border-t border-border"
+  />
+
+  {
+    shell.endCtaLabel ? (
+      <div class="border-t border-border bg-muted/20 py-10 md:py-12">
+        <div class="mx-auto flex max-w-6xl flex-col items-start gap-4 px-5">
+          <p class="text-lg font-semibold text-foreground">{shell.endCtaLabel}</p>
+          <Button as="a" href={ctaHref} variant="primary" size="lg" class="rounded-xl">
+            Buy now
+          </Button>
+        </div>
+      </div>
+    ) : null
+  }
+</BaseLayout>
+
+<style is:global>
+  .content-markdown :where(h1) {
+    font-family: var(--font-heading, inherit);
+    font-size: clamp(1.875rem, 4vw, 2.5rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.12;
+    margin-bottom: 1rem;
+    color: var(--foreground);
+  }
+  .content-markdown :where(h2) {
+    font-family: var(--font-heading, inherit);
+    font-size: 1.375rem;
+    font-weight: 700;
+    margin-top: 2.5rem;
+    margin-bottom: 0.75rem;
+    scroll-margin-top: 7rem;
+  }
+  .content-markdown :where(p, ul, ol) {
+    color: var(--muted-foreground);
+    line-height: 1.7;
+    margin-top: 0.75rem;
+  }
+  .content-markdown :where(a:not([data-slot='button'])) {
+    color: var(--primary);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+</style>

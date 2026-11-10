@@ -6,10 +6,13 @@ import WhySetupSection from './WhySetupSection.astro';
 import WorkflowSection from './WorkflowSection.astro';
 import HomeGuidesSection from './HomeGuidesSection.astro';
 import SiteFaqSection from './SiteFaqSection.astro';
-import { getLandingFaqs, HOME_LANDING_FAQ_SECTION_COPY, faqFilterTopicsForItems } from '../data/faq';
+import CaliberPageArticle from './content/CaliberPageArticle.astro';
+import AffiliateDisclosure from './AffiliateDisclosure.astro';
+import { getCaliberPage } from '../content/caliber-pages';
+import { faqsFromCaliberPage } from '../utils/caliberPageFaq';
 
-const homeFaqs = getLandingFaqs();
-const homeFaqTopics = faqFilterTopicsForItems(homeFaqs);
+const homePage = getCaliberPage('/')!;
+const homeFaqs = faqsFromCaliberPage(homePage, 'home');
 ---
 
 <HeroSection />
@@ -18,14 +21,19 @@ const homeFaqTopics = faqFilterTopicsForItems(homeFaqs);
 <WhySetupSection />
 <WorkflowSection />
 <HomeGuidesSection />
+<section class="border-y border-border bg-muted/15 py-16 md:py-20">
+  <div class="mx-auto max-w-6xl px-5">
+    <AffiliateDisclosure class="mb-8 max-w-3xl" />
+    <CaliberPageArticle page={homePage} skipH1 />
+  </div>
+</section>
 <SiteFaqSection
   id="faq"
   titleId="faq-title"
   titleAs="h2"
   items={homeFaqs}
-  eyebrow={HOME_LANDING_FAQ_SECTION_COPY.eyebrow}
-  title={HOME_LANDING_FAQ_SECTION_COPY.title}
-  subtitle={HOME_LANDING_FAQ_SECTION_COPY.subtitle}
-  showFilters={homeFaqTopics.length > 1}
-  filterTopics={homeFaqTopics}
+  eyebrow="FAQ"
+  title="Caliber cheats questions"
+  subtitle="Answers tied to the listed product features, plans, and setup requirements."
+  showFilters={false}
 />

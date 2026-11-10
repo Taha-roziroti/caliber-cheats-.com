@@ -15,6 +15,7 @@ import {
 import { Button } from '@/components/starwind/button';
 import { loadContentPage } from '../../utils/loadContentPage';
 import SiteFaqSection from '../SiteFaqSection.astro';
+import AffiliateDisclosure from '../AffiliateDisclosure.astro';
 import { faqFilterTopicsForItems, getContentPageFaqs } from '../../data/faq';
 
 interface Props {
@@ -50,8 +51,13 @@ const lcpPreload =
     : null;
 
 const logoAltByRoute: Record<string, string> = {
-  '/': 'Borderlands 3 – logo',
-  '/pricing/': 'Cheats pricing – logo',
+  '/': 'Caliber Cheats – logo',
+  '/caliber-esp/': 'Caliber ESP – logo',
+  '/caliber-aimbot/': 'Caliber aimbot – logo',
+  '/caliber-cheats-price/': 'Caliber pricing – logo',
+  '/caliber-cheats-review/': 'Caliber review – logo',
+  '/guides/caliber-sard-anti-cheat/': 'Caliber SARD – logo',
+  '/pricing/': 'Caliber pricing – logo',
   '/cloud-dma/': 'Cloud DMA – logo',
   '/hwid-spoofer/': 'HWID Spoofer – logo',
   '/guides/cloud-dma-setup/': 'DMA setup – logo',
@@ -103,6 +109,7 @@ const pageFaqTopics = pageFaqs ? faqFilterTopicsForItems(pageFaqs) : [];
               ) : null}
               <ContentFigures figures={data.figures} />
             </div>
+            <AffiliateDisclosure class="not-prose mt-6" />
             <div class="not-prose mt-8 lg:hidden">
               <CheckoutProductPicker defaultProduct={sidebarDefaultProduct} />
             </div>
@@ -110,7 +117,8 @@ const pageFaqTopics = pageFaqs ? faqFilterTopicsForItems(pageFaqs) : [];
               <AdditionalCostsCallout class="not-prose mt-8" />
             ) : null}
           </div>
-          <div class="hidden lg:block">
+          <div class="hidden lg:block lg:space-y-4">
+            <AffiliateDisclosure />
             <CheckoutProductPicker defaultProduct={sidebarDefaultProduct} />
           </div>
         </div>
@@ -120,6 +128,7 @@ const pageFaqTopics = pageFaqs ? faqFilterTopicsForItems(pageFaqs) : [];
         <div class="mx-auto max-w-6xl px-5">
           <Breadcrumbs items={breadcrumbs} class="mb-6 md:mb-8" />
           <div class="content-markdown mt-2 max-w-3xl">
+            <AffiliateDisclosure class="not-prose mb-6" />
             {FullContent ? <FullContent /> : null}
             <ContentFigures figures={data.figures} />
             {data.showAdditionalCostsCallout ? (

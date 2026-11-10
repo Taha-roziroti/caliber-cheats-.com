@@ -9,7 +9,8 @@ export type CheckoutProduct = keyof typeof CHECKOUT;
 
 /** URL slug for /go/[slug]/ checkout redirect pages. */
 export const CHECKOUT_SLUGS: Record<CheckoutProduct, string> = {
-  borderlands3: 'borderlands-3',
+  borderlands3: 'caliber',
+  caliber: 'caliber',
   cloudDma: 'cloud-dma',
   dota2: 'dota-2',
   skinChanger: 'skin-changer',
@@ -26,7 +27,7 @@ export function checkoutPath(product: CheckoutProduct = 'borderlands3'): string 
   return `/go/${CHECKOUT_SLUGS[product]}/`;
 }
 
-/** Hub where visitors pick Borderlands 3, Cloud DMA, or HWID Spoofer before checkout. */
+/** Hub where visitors pick Primary product, Cloud DMA, or HWID Spoofer before checkout. */
 export const CHECKOUT_HUB_PATH = '/go/';
 
 /** Default generic buy CTA (header, support pre-checkout). */
@@ -46,7 +47,8 @@ export function checkoutForSlug(slug: string): string {
     case 'pro':
     case 'elite':
     case 'borderlands-3':
-      return checkoutPath('borderlands3');
+    case 'caliber':
+      return checkoutPath('caliber');
     case 'cloud-dma':
       return checkoutPath('cloudDma');
     default:
@@ -75,11 +77,13 @@ export function resolveCheckoutHref(href: string): string {
     return checkoutPath('cloudDma');
   }
   if (
+    href.includes('caliber') ||
+    href.includes('/products/caliber') ||
     href.includes('borderlands-3') ||
     href.includes('/products/borderlands-3') ||
-    (href.includes('/go/TAHA') && href.includes('borderlands-3'))
+    (href.includes('/go/TAHA') && (href.includes('caliber') || href.includes('borderlands-3')))
   ) {
-    return checkoutPath('borderlands3');
+    return checkoutPath('caliber');
   }
   if (
     href.includes('%2Fproducts%2Fskin-changer') ||

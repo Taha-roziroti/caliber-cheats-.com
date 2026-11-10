@@ -4,15 +4,18 @@ import sitemap from '@astrojs/sitemap';
 import { sitemapSerialize } from './src/config/sitemap.ts';
 
 export default defineConfig({
-  site: 'https://borderlands3cheats.com',
+  site: 'https://caliber-cheats.com',
   trailingSlash: 'always',
   redirects: {
+    '/pricing/': '/caliber-cheats-price/',
+    '/buy-caliber-cheats/': '/',
+    '/caliber-hack/': '/',
     '/buy-borderlands-3-cheats/': '/',
     '/buy-borderlands-3-cheat/': '/',
     '/borderlands-3-cheats/': '/',
-    '/borderlands-3-cheats-price/': '/pricing/',
-    '/borderlands-3-esp/': '/',
-    '/borderlands-3-aimbot/': '/',
+    '/borderlands-3-cheats-price/': '/caliber-cheats-price/',
+    '/borderlands-3-esp/': '/caliber-esp/',
+    '/borderlands-3-aimbot/': '/caliber-aimbot/',
     '/cloud-dma-setup/': '/guides/cloud-dma-setup/',
     '/cheats/': '/',
     '/products/dota-2-cheats/': '/',
@@ -21,7 +24,7 @@ export default defineConfig({
     '/cheats/lite/': '/',
     '/cheats/pro/': '/',
     '/cheats/elite/': '/',
-    '/cheats/compare/': '/blog/dota-2-lite-vs-pro/',
+    '/cheats/compare/': '/blog/placeholder-article-two/',
     '/contact/': '/support/',
   },
   compressHTML: true,

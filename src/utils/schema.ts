@@ -35,7 +35,7 @@ export function websiteSchema() {
     url: `${SITE_ORIGIN}/`,
     inLanguage: 'en-US',
     description:
-      'Borderlands 3 PC cheat features including soft aim, enemy and loot ESP, radar, and recoil options.',
+      'Independent Caliber PC software information: ESP, aim assistance, radar, pricing, and setup requirements.',
   };
 }
 
@@ -147,7 +147,13 @@ function offerUrl(path: string): string {
   return canonicalUrl(path);
 }
 
-function buildOffer(offer: ProductOfferInput) {
+const AFFILIATE_SELLER = {
+  '@type': 'Organization' as const,
+  name: 'Zadeyo',
+  url: 'https://zadeyo.com/',
+};
+
+function buildOffer(offer: ProductOfferInput, affiliateCheckout?: boolean) {
   return {
     '@type': 'Offer' as const,
     name: offer.name,
@@ -155,10 +161,7 @@ function buildOffer(offer: ProductOfferInput) {
     price: offer.priceUsd.toFixed(2),
     priceCurrency: offer.priceCurrency ?? 'USD',
     availability: 'https://schema.org/InStock',
-    seller: {
-      '@type': 'Organization',
-      name: SITE_BRAND,
-    },
+    seller: affiliateCheckout ? AFFILIATE_SELLER : { '@type': 'Organization', name: SITE_BRAND },
   };
 }
 
@@ -171,12 +174,15 @@ export function productSchema(input: {
   sku?: string;
   offers?: ProductOfferInput[];
   productId?: string;
+  /** When true, Offer.seller is the external checkout partner (affiliate), not this site. */
+  affiliateCheckout?: boolean;
 }) {
+  const affiliate = input.affiliateCheckout ?? false;
   const offersBlock =
     input.offers && input.offers.length > 0
       ? input.offers.length === 1
-        ? buildOffer(input.offers[0]!)
-        : input.offers.map((o) => buildOffer(o))
+        ? buildOffer(input.offers[0]!, affiliate)
+        : input.offers.map((o) => buildOffer(o, affiliate))
       : {
           '@type': 'Offer',
           url: offerUrl(input.offerUrl),

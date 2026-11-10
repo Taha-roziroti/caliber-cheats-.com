@@ -5,6 +5,7 @@ import {
   HWID_SPOOFER_CHECKOUT,
 } from './borderlands3Site';
 import type { IconName } from '../components/icons/types';
+import { caliberHeroSlides } from './caliberMedia';
 
 export interface LandingCatalogProduct {
   slug: string;
@@ -19,56 +20,25 @@ export interface LandingCatalogProduct {
   variant?: 'essential' | 'popular' | 'limited';
 }
 
-export const borderlandsHeroSlides: ProductSlide[] = [
-  {
-    src: '/images/borderlands3/borderlands-3-enemy-esp-gameplay.webp',
-    alt: 'Borderlands 3 enemy ESP overlay during combat',
-    caption: 'Enemy ESP',
-    captionDesc: 'Health bars, distance, and skeleton readouts for nearby threats.',
-  },
-  {
-    src: '/images/borderlands3/borderlands-3-loot-esp-showcase.webp',
-    alt: 'Borderlands 3 loot ESP highlighting weapon drops',
-    caption: 'Loot ESP',
-    captionDesc: 'Rarity highlights and pickup markers across Pandora.',
-  },
-  {
-    src: '/images/borderlands3/borderlands-3-soft-aim-gameplay.webp',
-    alt: 'Borderlands 3 soft aim configuration in game',
-    caption: 'Soft aim',
-    captionDesc: 'Configurable FOV, smoothing, and combat tuning options.',
-  },
-  {
-    src: '/images/borderlands3/borderlands-3-radar-gameplay.webp',
-    alt: 'Borderlands 3 radar overlay',
-    caption: 'Radar',
-    captionDesc: '2D awareness for enemies and loot without covering the HUD.',
-  },
-  {
-    src: '/images/borderlands3/borderlands-3-esp-soft-aim-hero.webp',
-    alt: 'Borderlands 3 cheat menu and ESP preview',
-    caption: 'In-game menu',
-    captionDesc: 'Toggle modules and save presets from one overlay.',
-  },
-];
+export const borderlandsHeroSlides: ProductSlide[] = [...caliberHeroSlides];
 
 export const borderlandsLandingProducts: LandingCatalogProduct[] = [
   {
     slug: 'borderlands-3',
     label: 'Main plan',
-    title: 'Borderlands 3 Cheats',
-    href: '/pricing/',
+    title: 'Caliber Cheats',
+    href: '/caliber-cheats-price/',
     buyUrl: BL3_CHECKOUT,
     badge: 'Popular',
     variant: 'popular',
     icon: 'coreProduct',
     features: [
-      'Enemy ESP',
-      'Loot ESP',
-      'Soft aim',
-      '2D radar',
-      'Recoil options',
-      'Saveable configs',
+      'Player ESP',
+      'Weapon & gadget ESP',
+      'Aimbot & smoothing',
+      'Radar overlay',
+      'Recoil control',
+      'Stream-proof mode',
     ],
     more: 4,
   },
@@ -110,21 +80,21 @@ export const borderlandsLandingProducts: LandingCatalogProduct[] = [
 
 export const borderlandsGuideCards = [
   {
-    title: 'Cheat plan pricing',
-    desc: 'Compare $35 monthly and $150 lifetime Borderlands 3 access before checkout.',
-    href: '/pricing/',
-    readLabel: 'Compare plans',
+    title: 'Caliber cheats price',
+    desc: 'Monthly ($35) and lifetime ($150) plans — verified Nov 11, 2026; recheck before checkout.',
+    href: '/caliber-cheats-price/',
+    readLabel: 'Compare pricing',
   },
   {
-    title: 'Cloud DMA setup guide',
-    desc: 'Hyper-V, RAM, and CPU virtualization checks for the single-PC environment.',
-    href: '/guides/cloud-dma-setup/',
-    readLabel: 'Read setup guide',
+    title: 'Caliber ESP features',
+    desc: 'Player, weapon, gadget ESP, and radar on one page for related feature searches.',
+    href: '/caliber-esp/',
+    readLabel: 'Read ESP guide',
   },
   {
-    title: 'PC system requirements',
-    desc: 'Windows, Steam client, RAM, and Cloud DMA prerequisites for supported builds.',
-    href: '/guides/borderlands-3-cheat-system-requirements/',
-    readLabel: 'Check requirements',
+    title: 'Caliber SARD anti-cheat',
+    desc: 'Why EAC bypass claims may be outdated after the October 2025 announcement.',
+    href: '/guides/caliber-sard-anti-cheat/',
+    readLabel: 'Read SARD guide',
   },
 ] as const;

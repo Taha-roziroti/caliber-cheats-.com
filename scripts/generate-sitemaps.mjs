@@ -1,39 +1,26 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
-const SITE_HOST = 'borderlands3cheats.com';
+const SITE_HOST = 'caliber-cheats.com';
 const SITE_URL = `https://${SITE_HOST}`;
+const CALIBER = {
+  heroBanner: '/images/caliber/caliber-hero-banner.webp',
+  espWallhack: '/images/caliber/caliber-esp-wallhack.webp',
+  sniperEsp: '/images/caliber/caliber-sniper-esp.webp',
+  urbanCombat: '/images/caliber/caliber-urban-combat.webp',
+};
 
 /** Keep in sync with src/data/site.ts SITEMAP_IMAGES */
 const SITEMAP_IMAGES = {
-  '/': [
-    {
-      loc: `${SITE_URL}/images/borderlands3/borderlands-3-campfire-hero-640.webp`,
-      title: 'Borderlands 3 PC gameplay with ESP and soft aim overlays',
-    },
-    {
-      loc: `${SITE_URL}/images/borderlands3/borderlands-3-enemy-esp-gameplay-640.webp`,
-      title: 'Borderlands 3 enemy ESP gameplay overlay',
-    },
+  '/': [{ loc: `${SITE_URL}${CALIBER.heroBanner}`, title: 'Caliber Cheats tactical squad hero image' }],
+  '/caliber-esp/': [{ loc: `${SITE_URL}${CALIBER.espWallhack}`, title: 'Caliber ESP wallhack screenshot' }],
+  '/caliber-aimbot/': [{ loc: `${SITE_URL}${CALIBER.sniperEsp}`, title: 'Caliber aimbot scope screenshot' }],
+  '/caliber-cheats-price/': [{ loc: `${SITE_URL}/og/pricing.jpg`, title: 'Caliber cheats pricing' }],
+  '/caliber-cheats-review/': [{ loc: `${SITE_URL}${CALIBER.urbanCombat}`, title: 'Caliber feature review gameplay' }],
+  '/guides/caliber-sard-anti-cheat/': [
+    { loc: `${SITE_URL}/og/requirements.jpg`, title: 'Caliber SARD guide' },
   ],
-  '/pricing/': [
-    {
-      loc: `${SITE_URL}/images/borderlands3/borderlands-3-campfire-hero-640.webp`,
-      title: 'Borderlands 3 cheat plans and pricing',
-    },
-  ],
-  '/cloud-dma/': [{ loc: `${SITE_URL}/og/cloud-dma.jpg`, title: 'Cloud DMA single-PC Hyper-V setup' }],
-  '/hwid-spoofer/': [{ loc: `${SITE_URL}/og/default.jpg`, title: 'HWID Spoofer lifetime utility' }],
-  '/guides/cloud-dma-setup/': [
-    { loc: `${SITE_URL}/og/cloud-dma-setup.jpg`, title: 'Cloud DMA setup guide' },
-  ],
-  '/guides/borderlands-3-cheat-system-requirements/': [
-    {
-      loc: `${SITE_URL}/images/borderlands3/borderlands-3-soft-aim-gameplay-640.webp`,
-      title: 'Borderlands 3 PC system requirements',
-    },
-  ],
-  '/faq/': [{ loc: `${SITE_URL}/og/faq.jpg`, title: 'Borderlands 3 cheats FAQ' }],
+  '/faq/': [{ loc: `${SITE_URL}/og/faq.jpg`, title: 'FAQ' }],
 };
 
 const root = process.cwd();
@@ -133,13 +120,11 @@ fs.writeFileSync(path.join(dist, 'sitemap-0.xml'), formatted, 'utf8');
 const urlCount = (formatted.match(/<url>/g) ?? []).length;
 console.log(`generate-sitemaps: ${urlCount} URLs with image namespace → dist/sitemap.xml`);
 
-// Copy public sitemap.css into dist if present
 const cssSrc = path.join(root, 'public', 'sitemap.css');
 if (fs.existsSync(cssSrc)) {
   fs.copyFileSync(cssSrc, path.join(dist, 'sitemap.css'));
 }
 
-// Copy og + _redirects
 for (const rel of ['og', '_redirects', 'robots.txt']) {
   const from = path.join(root, 'public', rel);
   const to = path.join(dist, rel);

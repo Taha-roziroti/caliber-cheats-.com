@@ -1,0 +1,46 @@
+---
+import type { CaliberPage } from '../../content/caliber-pages';
+import { figuresForCaliberPage } from '../../data/caliberMedia';
+import ContentFigures from './ContentFigures.astro';
+
+interface Props {
+  page: CaliberPage;
+  /** Skip H1 when the hero already shows the main title (homepage). */
+  skipH1?: boolean;
+}
+
+const { page, skipH1 = false } = Astro.props;
+const figures = figuresForCaliberPage(page);
+---
+
+<div class="content-markdown">
+  {!skipH1 ? <h1>{page.h1}</h1> : null}
+  <p>{page.intro}</p>
+  {
+    page.sections.map((section) => (
+      <>
+        <h2>{section.heading}</h2>
+        {section.paragraphs.map((paragraph) => (
+          <p>{paragraph}</p>
+        ))}
+      </>
+    ))
+  }
+  {figures.length > 0 ? <ContentFigures figures={figures} /> : null}
+  {
+    page.internalLinks.length > 0 ? (
+      <nav class="not-prose mt-10 rounded-xl border border-border bg-card/60 p-4" aria-label="Related pages">
+        <p class="text-sm font-semibold text-foreground">Related pages</p>
+        <ul class="mt-2 space-y-2 text-sm">
+          {page.internalLinks.map((link) => (
+            <li>
+              <a href={link.href} class="text-primary underline underline-offset-2">
+                {link.anchor}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    ) : null
+  }
+</div>

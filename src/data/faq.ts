@@ -31,17 +31,17 @@ function link(text: string, href: string): string {
   return `<a href="${normalizeInternalPath(href)}">${text}</a>`;
 }
 
-const pricingPage = link('monthly and lifetime pricing page', '/pricing/');
+const pricingPage = link('monthly and lifetime pricing page', '/caliber-cheats-price/');
 const cloudDmaPage = link('Cloud DMA product overview', '/cloud-dma/');
-const requirementsGuide = link('Windows and RAM requirements guide', '/guides/borderlands-3-cheat-system-requirements/');
+const requirementsGuide = link('Caliber SARD and PC requirements guide', '/guides/caliber-sard-anti-cheat/');
 const setupGuide = link('Hyper-V Cloud DMA setup walkthrough', '/guides/cloud-dma-setup/');
 const checkout = link('secure checkout', PRIMARY_CHECKOUT_PATH);
 const faqPage = link('full FAQ topic list', ROUTES.faq);
 
-const elite = link('Dota 2 Elite', productPath('elite'));
+const elite = link('Secondary product Elite', productPath('elite'));
 const lite = link('Lite tier (map hack & ESP)', ROUTES.products);
 const pro = link('Pro tier (scripts included)', ROUTES.products);
-const productsHub = link('Dota 2 products', ROUTES.products);
+const productsHub = link('Secondary product products', ROUTES.products);
 const hwid = link('HWID Spoofer', productPath('hwid-spoofer'));
 const ugc = link('UGC', productPath('ugc'));
 const skin = link('Skin Changer', productPath('unlock-all'));
@@ -52,9 +52,9 @@ export const siteFaqs: SiteFaqItem[] = [
     id: 'features',
     topic: 'esp',
     icon: 'faqWhatIsEsp',
-    q: 'What features are included in Borderlands 3 cheats?',
+    q: 'What features are included in the listed Caliber cheats?',
     a: a(
-      'Soft aim, enemy ESP, loot ESP, radar, no recoil, no spread, and a stream-proof overlay. See the homepage feature section for an overview.',
+      'Player ESP, weapon and gadget ESP, radar overlay, aim assistance with smoothing, recoil control, and stream-proof mode. See the homepage feature section for an overview.',
     ),
   },
   {
@@ -79,7 +79,7 @@ export const siteFaqs: SiteFaqItem[] = [
     icon: 'faqPlatforms',
     q: 'Which platforms are supported?',
     a: a(
-      'Borderlands 3 on Windows 10 or 11 64-bit with supported Steam or Official Client builds. macOS and Linux are not supported.',
+      'Caliber on Windows 10 or 11 64-bit with the supported PC client builds listed at checkout. macOS and Linux are not supported.',
     ),
   },
   {
@@ -96,14 +96,14 @@ export const siteFaqs: SiteFaqItem[] = [
     topic: 'plans',
     icon: 'faqComparePlans',
     q: 'Can I choose between monthly and lifetime access?',
-    a: `Yes. Compare monthly and lifetime Borderlands 3 plans on the ${pricingPage}.`,
+    a: `Yes. Compare monthly and lifetime Caliber plans on the ${pricingPage}.`,
   },
   {
     id: 'plan-prices',
     topic: 'plans',
     icon: 'faqRankTiers',
-    q: 'How much do Borderlands 3 cheats cost?',
-    a: `Monthly and lifetime prices are listed on the ${link('cheat plan pricing table', '/pricing/')}. Cloud DMA is a separate lifetime license on the ${link('$50 Cloud DMA license page', '/cloud-dma/')}.`,
+    q: 'How much do Caliber cheats cost?',
+    a: `Monthly and lifetime prices are listed on the ${link('Caliber plan pricing table', '/caliber-cheats-price/')}. Cloud DMA is a separate lifetime license on the ${link('$50 Cloud DMA license page', '/cloud-dma/')}.`,
   },
   {
     id: 'cloud-dma',
@@ -131,7 +131,7 @@ export const siteFaqs: SiteFaqItem[] = [
     topic: 'setup',
     icon: 'faqDiscordHelp',
     q: 'What Windows version do I need?',
-    a: `Windows 10 or 11 with virtualization enabled for Cloud DMA. See the ${link('Borderlands 3 PC requirements checklist', '/guides/borderlands-3-cheat-system-requirements/')} for RAM, CPU, and client compatibility.`,
+    a: `Windows 10 or 11 with virtualization enabled for Cloud DMA. See the ${requirementsGuide} and Cloud DMA setup guide for RAM, CPU, and client compatibility.`,
   },
   {
     id: 'soft-aim',
@@ -146,9 +146,9 @@ export const siteFaqs: SiteFaqItem[] = [
     id: 'esp-loot',
     topic: 'esp',
     icon: 'faqEspVsScripts',
-    q: 'What is the difference between enemy ESP and loot ESP?',
+    q: 'What is the difference between player ESP and weapon ESP?',
     a: a(
-      'Enemy ESP highlights hostile positions and awareness cues. Loot ESP draws attention to valuable drops so you spend less time searching the environment.',
+      'Player ESP highlights operators and threats through obstacles. Weapon and gadget ESP surfaces firearms, gear, and deployables so you spend less time searching the map.',
     ),
   },
   {
@@ -180,9 +180,9 @@ export const siteFaqs: SiteFaqItem[] = [
     id: 'publisher',
     topic: 'safety',
     icon: 'faqPrivateCheats',
-    q: 'Are you affiliated with Gearbox or 2K?',
+    q: 'Are you affiliated with the game publisher?',
     a: a(
-      'No. Borderlands 3 Cheats is independent and uses the game name only to describe supported software.',
+      'No. Caliber Cheats is independent and uses the game name only to describe supported software.',
     ),
   },
   {
@@ -190,7 +190,7 @@ export const siteFaqs: SiteFaqItem[] = [
     topic: 'all',
     icon: 'faqMore',
     q: 'Where is the full FAQ?',
-    a: `This page collects plan, feature, Cloud DMA, and setup answers. Start on the ${link('Borderlands 3 cheats homepage', '/')}, then read the ${faqPage} filters for every topic.`,
+    a: `This page collects plan, feature, Cloud DMA, and setup answers. Start on the ${link('Caliber cheats homepage', '/')}, then read the ${faqPage} filters for every topic.`,
   },
 ];
 
@@ -201,7 +201,12 @@ export function getLandingFaqs(): SiteFaqItem[] {
 }
 
 const CONTENT_PAGE_FAQ_IDS: Record<string, string[]> = {
+  '/caliber-cheats-price/': ['pricing-plans', 'plan-prices', 'features', 'after-buy', 'checkout-help'],
   '/pricing/': ['pricing-plans', 'plan-prices', 'features', 'after-buy', 'checkout-help'],
+  '/caliber-esp/': ['features', 'esp-loot', 'stream-proof', 'platforms'],
+  '/caliber-aimbot/': ['soft-aim', 'features', 'cloud-dma', 'windows-req'],
+  '/caliber-cheats-review/': ['features', 'ban-risk', 'undetected', 'publisher'],
+  '/guides/caliber-sard-anti-cheat/': ['ban-risk', 'undetected', 'platforms', 'publisher'],
   '/cloud-dma/': ['cloud-dma', 'cloud-dma-cost', 'windows-req', 'platforms', 'after-buy'],
   '/hwid-spoofer/': ['hwid-spoofer', 'ban-risk', 'license-move', 'platforms', 'undetected'],
 };
@@ -236,10 +241,9 @@ export const SITE_FAQ_FILTER_TOPICS: FaqTopic[] = [
 ];
 
 export const HOME_LANDING_FAQ_SECTION_COPY = {
-  eyebrow: 'Cheat FAQ',
-  title: 'Borderlands 3 cheats questions',
-  subtitle:
-    'Straight answers on plans, Cloud DMA, bans, and setup—open the full FAQ for every topic.',
+  eyebrow: 'FAQ',
+  title: 'Common questions',
+  subtitle: 'Placeholder FAQ intro — open the full FAQ page for every topic.',
 } as const;
 
 /** Section copy when FAQ list is scoped to the current page (not /faq/). */
@@ -289,7 +293,7 @@ const blogTopicFaqs: Record<string, SiteFaqItem[]> = {
       topic: 'blog',
       icon: 'faqBlogGuideStart',
       q: 'Should I use console cheat codes in ranked?',
-      a: a('No. Valve lobby cheat codes only work in custom games with cheats enabled. Ranked requires separate dota cheats from dotacheats.com tiers.'),
+      a: a('No. Platform vendor lobby cheat codes only work in custom games with cheats enabled. Ranked requires separate product utilities from caliber-cheats.com tiers.'),
     },
     {
       id: 'blog-guide-tier',
@@ -353,7 +357,7 @@ const defaultBlogFaqs: SiteFaqItem[] = [
     topic: 'blog',
     icon: 'faqBlogDefault3',
     q: 'Will settings in this article work next patch?',
-    a: a('Re-check status after every Dota 2 update. Portal presets update with patch notes—reload configs instead of copying old sliders.'),
+    a: a('Re-check status after every Secondary product update. Portal presets update with patch notes—reload configs instead of copying old sliders.'),
   },
 ];
 

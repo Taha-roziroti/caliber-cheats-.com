@@ -1,32 +1,41 @@
-/** First-party Borderlands 3 screenshot gallery — unique alt text for image SEO. */
+import { CALIBER_IMAGE } from './caliberMedia';
 
+/** Product preview gallery — Caliber feature screenshots. */
 export const PRODUCT_PREVIEW_GALLERY = [
   {
-    src: '/images/borderlands3/borderlands-3-esp-soft-aim-hero.webp',
-    alt: 'Borderlands 3 PC gameplay showing ESP boxes, soft aim lines, and critical hit markers',
+    src: CALIBER_IMAGE.heroBanner,
+    alt: 'Caliber Cheats hero — tactical operators in full combat gear',
   },
   {
-    src: '/images/borderlands3/borderlands-3-enemy-esp-gameplay.webp',
-    alt: 'Borderlands 3 enemy ESP overlay with health bars through twilight settlement combat',
+    src: CALIBER_IMAGE.espWallhack,
+    alt: 'Caliber ESP wallhack screenshot with player snaplines and distance tags',
   },
   {
-    src: '/images/borderlands3/borderlands-3-radar-gameplay.webp',
-    alt: 'Borderlands 3 snaplines and enemy markers during a firefight',
+    src: CALIBER_IMAGE.sniperEsp,
+    alt: 'Caliber sniper scope gameplay showing ESP boxes and aim assistance',
   },
   {
-    src: '/images/borderlands3/borderlands-3-soft-aim-gameplay.webp',
-    alt: 'Borderlands 3 soft aim reticle locked on a Fanatic enemy',
+    src: CALIBER_IMAGE.playerEspUrban,
+    alt: 'Caliber player ESP in an urban TerraGroup-style map',
   },
   {
-    src: '/images/borderlands3/borderlands-3-loot-esp-showcase.webp',
-    alt: 'Borderlands 3 loot ESP highlighting a pistol cache behind cover',
+    src: CALIBER_IMAGE.snowCombat,
+    alt: 'Caliber snow map tactical combat with squad HUD',
   },
   {
-    src: '/images/borderlands3/borderlands-3-loot-esp-backpack.webp',
-    alt: 'Borderlands 3 loot ESP green box on a backpack pickup in Cistern of Slaughter',
+    src: CALIBER_IMAGE.urbanCombat,
+    alt: 'Caliber urban combat near Secure Tomorrow corporate plaza',
   },
   {
-    src: '/images/borderlands3/borderlands-3-enemy-esp-skag.webp',
-    alt: 'Borderlands 3 enemy ESP nameplate on a Feral Skag with distance readout',
+    src: CALIBER_IMAGE.heroSquad,
+    alt: 'Caliber squad moving through an industrial winter facility',
+  },
+  {
+    src: CALIBER_IMAGE.supplyInteraction,
+    alt: 'Caliber operator resupplying ammunition from a tactical crate',
+  },
+  {
+    src: CALIBER_IMAGE.blogOverview,
+    alt: 'Caliber cheats 2026 feature overview gameplay screenshot',
   },
 ] as const;

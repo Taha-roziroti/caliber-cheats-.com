@@ -8,6 +8,7 @@ import {
   HWID_SPOOFER_CHECKOUT,
 } from '../data/borderlands3Site';
 import { PRODUCT_ID, SITE_URL } from '../data/site';
+import { CALIBER_IMAGE } from '../data/caliberMedia';
 import {
   breadcrumbSchema,
   guideArticleSchema,
@@ -18,10 +19,35 @@ import {
 
 export function breadcrumbsForRoute(route: string): BreadcrumbItem[] {
   if (route === '/') return [{ name: 'Home', path: '/' }];
-  if (route === '/pricing/') {
+  if (route === '/caliber-esp/') {
     return [
       { name: 'Home', path: '/' },
-      { name: 'Pricing', path: '/pricing/' },
+      { name: 'Caliber ESP', path: '/caliber-esp/' },
+    ];
+  }
+  if (route === '/caliber-aimbot/') {
+    return [
+      { name: 'Home', path: '/' },
+      { name: 'Caliber aimbot', path: '/caliber-aimbot/' },
+    ];
+  }
+  if (route === '/caliber-cheats-price/' || route === '/pricing/') {
+    return [
+      { name: 'Home', path: '/' },
+      { name: 'Caliber pricing', path: '/caliber-cheats-price/' },
+    ];
+  }
+  if (route === '/caliber-cheats-review/') {
+    return [
+      { name: 'Home', path: '/' },
+      { name: 'Caliber review', path: '/caliber-cheats-review/' },
+    ];
+  }
+  if (route === '/guides/caliber-sard-anti-cheat/') {
+    return [
+      { name: 'Home', path: '/' },
+      { name: 'Guides', path: '/guides/caliber-sard-anti-cheat/' },
+      { name: 'SARD anti-cheat', path: '/guides/caliber-sard-anti-cheat/' },
     ];
   }
   if (route === '/cloud-dma/') {
@@ -46,8 +72,8 @@ export function breadcrumbsForRoute(route: string): BreadcrumbItem[] {
   if (route === '/guides/borderlands-3-cheat-system-requirements/') {
     return [
       { name: 'Home', path: '/' },
-      { name: 'Cheat plans', path: '/pricing/' },
-      { name: 'System requirements', path: '/guides/borderlands-3-cheat-system-requirements/' },
+      { name: 'Pricing', path: '/caliber-cheats-price/' },
+      { name: 'Legacy requirements', path: '/guides/borderlands-3-cheat-system-requirements/' },
     ];
   }
   return [{ name: 'Home', path: '/' }];
@@ -67,14 +93,15 @@ export function jsonLdForContentPage(input: {
     if (input.route === '/') {
       blocks.push(
         productSchema({
-          name: 'Borderlands 3 Cheats for PC',
+          name: 'Caliber Cheats for PC',
           description: input.metaDescription,
           url: '/',
           offerUrl: BL3_CHECKOUT,
-          sku: 'borderlands-3-cheats',
-          image: '/images/borderlands3/borderlands-3-esp-soft-aim-hero.webp',
+          sku: 'caliber-cheats',
+          image: CALIBER_IMAGE.heroBanner,
           productId: PRODUCT_ID,
           offers: [...bl3ProductOffers],
+          affiliateCheckout: true,
         }),
       );
     } else if (input.route === '/cloud-dma/') {
@@ -93,6 +120,7 @@ export function jsonLdForContentPage(input: {
               url: CLOUD_DMA_CHECKOUT,
             },
           ],
+          affiliateCheckout: true,
         }),
       );
     } else if (input.route === '/hwid-spoofer/') {
@@ -111,6 +139,7 @@ export function jsonLdForContentPage(input: {
               url: HWID_SPOOFER_CHECKOUT,
             },
           ],
+          affiliateCheckout: true,
         }),
       );
     }
@@ -150,9 +179,9 @@ export function defaultEndCtaHref(
 ): string {
   if (checkout === 'cloud-dma') return checkoutPath('cloudDma');
   if (checkout === 'hwid-spoofer') return checkoutPath('hwidSpoofer');
-  if (checkout === 'borderlands-3') return checkoutPath('borderlands3');
-  if (route === '/pricing/') return checkoutPath('borderlands3');
+  if (checkout === 'borderlands-3') return checkoutPath('caliber');
+  if (route === '/caliber-cheats-price/' || route === '/pricing/') return checkoutPath('caliber');
   if (route === '/cloud-dma/') return checkoutPath('cloudDma');
   if (route === '/hwid-spoofer/') return checkoutPath('hwidSpoofer');
-  return checkoutPath('borderlands3');
+  return checkoutPath('caliber');
 }

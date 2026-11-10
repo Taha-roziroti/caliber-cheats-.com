@@ -1,28 +1,30 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import HomeLanding from '../components/HomeLanding.astro';
-import { resolvePageSeo } from '../config/seo';
-import { loadContentPage } from '../utils/loadContentPage';
+import { getCaliberPage } from '../content/caliber-pages';
+import { CALIBER_PAGE_SHELL } from '../content/caliber-page-shell';
 import { jsonLdForContentPage } from '../utils/contentPageJsonLd';
+import { CALIBER_IMAGE } from '../data/caliberMedia';
+import { defaultWebpSrc, HERO_IMAGE_WIDTHS } from '../utils/responsiveImage';
 
-const seo = resolvePageSeo('/');
-const entry = await loadContentPage('home');
-const data = entry.data;
+const page = getCaliberPage('/')!;
+const heroLcp = defaultWebpSrc(CALIBER_IMAGE.heroBanner, HERO_IMAGE_WIDTHS);
+const shell = CALIBER_PAGE_SHELL['/']!;
 const jsonLd = jsonLdForContentPage({
-  route: data.route,
-  seoTitle: data.seoTitle,
-  metaDescription: data.metaDescription,
-  schemaTypes: data.schemaTypes,
+  route: '/',
+  seoTitle: page.seoTitle,
+  metaDescription: page.metaDescription,
+  schemaTypes: shell.schemaTypes,
 });
 ---
 
 <BaseLayout
-  title={seo.title}
-  description={seo.description}
+  title={page.seoTitle}
+  description={page.metaDescription}
   jsonLd={jsonLd}
-  ogImage={data.ogImage}
-  ogImageAlt={data.heroImage?.alt ?? data.seoTitle}
-  logoAlt="Borderlands 3 – logo"
+  ogImageAlt={page.imageAltText[0]}
+  logoAlt="Caliber Cheats — logo"
 >
+  <link slot="head" rel="preload" as="image" href={heroLcp} type="image/webp" fetchpriority="high" />
   <HomeLanding />
 </BaseLayout>

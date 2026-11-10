@@ -1,4 +1,4 @@
-/** Zadeyo affiliate gateway (TAHA) — used for Borderlands 3 checkout redirects. */
+/** Zadeyo affiliate gateway (TAHA) — used for Primary product checkout redirects. */
 const AFFILIATE_GO = 'https://zadeyo.com/go/TAHA';
 
 function affiliateTo(productPath) {
@@ -7,7 +7,8 @@ function affiliateTo(productPath) {
 
 /** Checkout destinations keyed by internal product id. */
 export const CHECKOUT_URLS = {
-  borderlands3: affiliateTo('/products/borderlands-3'),
+  borderlands3: affiliateTo('/products/caliber'),
+  caliber: affiliateTo('/products/caliber'),
   cloudDma: affiliateTo('/products/cloud-dma'),
   dota2: 'https://zadeyo.com/products/dota-2',
   skinChanger: 'https://zadeyo.com/products/skin-changer',
@@ -19,6 +20,8 @@ export const CHECKOUT_URLS = {
 export const CHECKOUT_PATH_REDIRECTS = new Map([
   ['/go/borderlands-3', CHECKOUT_URLS.borderlands3],
   ['/go/borderlands-3/', CHECKOUT_URLS.borderlands3],
+  ['/go/caliber', CHECKOUT_URLS.caliber],
+  ['/go/caliber/', CHECKOUT_URLS.caliber],
   ['/go/cloud-dma', CHECKOUT_URLS.cloudDma],
   ['/go/cloud-dma/', CHECKOUT_URLS.cloudDma],
   ['/go/dota-2', CHECKOUT_URLS.dota2],

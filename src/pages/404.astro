@@ -9,8 +9,9 @@ import { ROUTES } from '../utils/path';
 
 <BaseLayout
   title={`Page not found | ${t.site.name}`}
-  description="The page you requested could not be found on dotacheats.com."
+  description="The page you requested could not be found on caliber-cheats.com."
   noindex={true}
+  canonicalPath="/"
 >
   <section class="py-16 md:py-24">
     <div class="mx-auto max-w-lg px-5 text-center">
@@ -24,8 +25,8 @@ import { ROUTES } from '../utils/path';
           Back to home
           <Icon name="arrowRight" size={17} />
         </Button>
-        <Button as="a" href={ROUTES.products} variant="outline">View products</Button>
-        <Button as="a" href={ROUTES.productsElite} variant="outline">View Elite cheats</Button>
+        <Button as="a" href="/caliber-cheats-price/" variant="outline">View pricing</Button>
+        <Button as="a" href="/faq/" variant="outline">Read FAQ</Button>
       </div>
     </div>
   </section>

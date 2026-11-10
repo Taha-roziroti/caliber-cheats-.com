@@ -4,11 +4,7 @@ import sharp from 'sharp';
 
 const root = process.cwd();
 const widths = [320, 400, 512, 640, 960];
-const dirs = [
-  'public/images/gameplay',
-  'public/images/blog',
-  'public/images/borderlands3',
-];
+const dirs = ['public/images/gameplay', 'public/images/blog', 'public/images/caliber'];
 
 async function optimizeDir(relativeDir, { pngOnly = true } = {}) {
   const dir = path.join(root, relativeDir);
@@ -36,7 +32,7 @@ async function optimizeDir(relativeDir, { pngOnly = true } = {}) {
 }
 
 for (const dir of dirs) {
-  const pngOnly = dir !== 'public/images/borderlands3';
+  const pngOnly = dir !== 'public/images/caliber';
   await optimizeDir(dir, { pngOnly });
 }
 

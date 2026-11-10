@@ -1,0 +1,21 @@
+---
+import { siteDisclosure } from '../content/caliber-pages';
+
+interface Props {
+  class?: string;
+}
+const { class: className = '' } = Astro.props;
+---
+
+<aside
+  class:list={[
+    'rounded-xl border border-border bg-muted/30 px-4 py-3 text-sm leading-relaxed text-muted-foreground',
+    className,
+  ]}
+  role="note"
+  aria-label="Affiliate disclosure"
+>
+  <strong class="text-foreground">Disclosure:</strong>
+  {siteDisclosure} caliber-cheats.com is independent and is not the official Caliber game website or an authorized
+  publisher partner. Checkout is completed on our partner seller (Zadeyo).
+</aside>

@@ -14,15 +14,16 @@ interface Props {
 }
 
 const { src, alt, priority = false, class: className = '' } = Astro.props;
-const srcSet = responsiveSrcSet(src, HERO_IMAGE_WIDTHS);
-const imgSrc = defaultWebpSrc(src, HERO_IMAGE_WIDTHS);
+const isRaster = /\.(png|jpe?g|webp)$/i.test(src);
+const srcSet = isRaster ? responsiveSrcSet(src, HERO_IMAGE_WIDTHS) : undefined;
+const imgSrc = isRaster ? defaultWebpSrc(src, HERO_IMAGE_WIDTHS) : src;
 ---
 
 <figure class={`overflow-hidden rounded-2xl border border-border bg-muted/20 ${className}`}>
   <img
     src={imgSrc}
     srcset={srcSet}
-    sizes={HERO_IMAGE_SIZES}
+    sizes={isRaster ? HERO_IMAGE_SIZES : undefined}
     alt={alt}
     width={960}
     height={540}
