@@ -2,6 +2,98 @@
    Page CSS is imported only where used to keep inlined HTML smaller. */
 
 /* Centered page sections — max width matches Tailwind max-w-6xl */
+.below-fold-section {
+  min-width: 0;
+}
+
+html,
+body {
+  max-width: 100%;
+}
+
+#main-content {
+  min-width: 0;
+}
+
+/* Long-form / article copy — readable wrapping (Bebas is display-only). */
+.content-markdown {
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+.content-markdown :where(h1, h2, h3, h4) {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  overflow-wrap: break-word;
+  text-wrap: balance;
+  hyphens: auto;
+}
+
+.content-markdown :where(h1) {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  line-height: 1.15;
+}
+
+.content-markdown :where(h2) {
+  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+  line-height: 1.25;
+}
+
+.content-markdown :where(p, li, td, th, blockquote) {
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+.content-markdown :where(a:not([data-slot='button'])) {
+  overflow-wrap: anywhere;
+}
+
+.content-markdown :where(table) {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.section-header__title {
+  overflow-wrap: break-word;
+  text-wrap: balance;
+}
+
+.site-breadcrumbs {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.site-breadcrumbs [data-slot='breadcrumb-item'],
+.site-breadcrumbs [data-slot='breadcrumb-link'],
+.site-breadcrumbs [data-slot='breadcrumb-page'] {
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+[data-floating-nav] {
+  max-width: 100%;
+}
+
+[data-slot='accordion-trigger'] {
+  min-width: 0;
+  text-align: left;
+  white-space: normal;
+}
+
+[data-slot='accordion-trigger'] > span {
+  min-width: 0;
+  flex: 1 1 auto;
+  overflow-wrap: break-word;
+  text-wrap: pretty;
+}
+
 .section-shell {
   width: 100%;
   max-width: 72rem;
@@ -113,6 +205,36 @@ html::-webkit-scrollbar,
 #hero {
   padding-top: calc(var(--floating-nav-clearance) + 2.75rem);
   padding-bottom: 4.5rem;
+}
+
+/* Mobile hero: banner art behind copy (slider stays desktop-only). */
+.hero-section__photo {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-color: var(--background);
+  background-position: center 18%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.hero-section__photo-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    180deg,
+    color-mix(in oklch, var(--background) 55%, transparent) 0%,
+    color-mix(in oklch, var(--background) 88%, transparent) 42%,
+    var(--background) 72%
+  );
+}
+
+@media (min-width: 1024px) {
+  .hero-section__photo,
+  .hero-section__photo-overlay {
+    display: none;
+  }
 }
 
 @media (min-width: 768px) {

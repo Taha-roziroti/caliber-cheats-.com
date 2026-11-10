@@ -1,7 +1,8 @@
 ---
 route: /caliber-aimbot/
-seoTitle: Caliber Aimbot for PC | Aim & Recoil Features
-metaDescription: Explore the listed Caliber aimbot, smoothing, aim-assist, and recoil features. Review requirements and check current access options.
+seoTitle: Caliber Aimbot for PC | Smoothing, Recoil & Assist
+metaDescription: >-
+  Caliber cheats aim features explained—smoothing, auto-aim assist and separate recoil controls—with Windows and Cloud DMA requirements noted.
 schemaTypes:
   - Article
   - BreadcrumbList

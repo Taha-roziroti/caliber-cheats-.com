@@ -1,7 +1,8 @@
 ---
 route: /caliber-cheats-price/
-seoTitle: 'Caliber Cheats Price | Monthly vs. Lifetime'
-metaDescription: Compare the listed $35 monthly and $150 lifetime Caliber plans. Review requirements and confirm the current price before checkout.
+seoTitle: 'Caliber Cheats Price | Monthly & Lifetime Plans'
+metaDescription: >-
+  Caliber cheats plans at $35 for 31 days or $150 lifetime, plus separate Cloud DMA pricing. Compare totals, requirements and checkout steps.
 schemaTypes:
   - Article
   - BreadcrumbList

@@ -7,8 +7,8 @@ function affiliateTo(productPath) {
 
 /** Checkout destinations keyed by internal product id. */
 export const CHECKOUT_URLS = {
-  borderlands3: affiliateTo('/products/caliber'),
-  caliber: affiliateTo('/products/caliber'),
+  borderlands3: affiliateTo('/products/caliber-novaxware'),
+  caliber: affiliateTo('/products/caliber-novaxware'),
   cloudDma: affiliateTo('/products/cloud-dma'),
   dota2: 'https://zadeyo.com/products/dota-2',
   skinChanger: 'https://zadeyo.com/products/skin-changer',

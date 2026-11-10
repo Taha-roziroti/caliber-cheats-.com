@@ -2,9 +2,9 @@ import type { CaliberPage } from './types';
 
 export const caliberEspPage: CaliberPage = {
   slug: '/caliber-esp/',
-  seoTitle: 'Caliber ESP for PC | Player & Weapon Features',
+  seoTitle: 'Caliber ESP for PC | Player, Weapon & Radar Tools',
   metaDescription:
-    'Explore Caliber ESP, player loadout information, weapon visibility, gadget ESP and radar features. See what\'s included.',
+    'Caliber cheats ESP overview: player loadouts, weapon markers, gadget visibility and radar overlays—what the listing includes before you buy.',
   h1: 'Caliber ESP and Player Visibility Features',
   intro:
     'Knowing what\'s happening around you can make a huge difference in Caliber. Between different operators, equipment, weapons, and constantly changing encounters, there\'s plenty of information to keep track of during a match. Caliber ESP focuses on that visual side of gameplay. With player information, loadout displays, weapon ESP, equipment visibility, and a radar overlay, the feature selection brings multiple information tools together in one place.',
@@ -68,9 +68,9 @@ export const caliberEspPage: CaliberPage = {
     },
   ],
   internalLinks: [
-    { href: '/', anchor: 'View the complete Caliber cheats package' },
-    { href: '/caliber-aimbot/', anchor: 'Explore Caliber aimbot and recoil features' },
-    { href: '/caliber-cheats-review/', anchor: 'Read the Caliber feature review' },
+    { href: '/', anchor: 'Full Caliber cheats feature index' },
+    { href: '/caliber-aimbot/', anchor: 'Jump to aimbot and recoil tuning' },
+    { href: '/caliber-cheats-review/', anchor: 'ESP versus aim: honest review' },
   ],
   imageAltText: [
     'Caliber ESP player visibility gameplay screenshot',

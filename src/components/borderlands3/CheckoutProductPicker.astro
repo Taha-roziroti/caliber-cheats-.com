@@ -27,7 +27,7 @@ const products: {
 }[] = [
   {
     id: 'borderlands-3',
-    label: 'Primary product cheats',
+    label: 'Caliber cheats',
     detail: 'Main plan — soft aim, ESP, radar',
     price: `From ${formatPlanPrice(bl3From)}`,
     href: BL3_CHECKOUT,
@@ -75,15 +75,17 @@ const initial = products.find((p) => p.id === defaultProduct) ?? products[0]!;
       >
         {
           products.map((product) => (
-            <label class="flex cursor-pointer items-center justify-between gap-3 rounded-xl border border-border bg-background p-3.5 transition-colors has-data-checked:border-primary has-data-checked:bg-primary/10">
+            <label class="flex cursor-pointer flex-col gap-2 rounded-xl border border-border bg-background p-3.5 transition-colors has-data-checked:border-primary has-data-checked:bg-primary/10 sm:flex-row sm:items-center sm:justify-between sm:gap-3">
               <span class="flex min-w-0 items-start gap-3">
-                <RadioGroupItem value={product.id} variant="primary" class="mt-0.5" />
-                <span class="min-w-0">
-                  <span class="block text-sm font-medium text-foreground">{product.label}</span>
-                  <span class="block text-xs text-muted-foreground">{product.detail}</span>
+                <RadioGroupItem value={product.id} variant="primary" class="mt-0.5 shrink-0" />
+                <span class="min-w-0 flex-1">
+                  <span class="block text-sm font-medium leading-snug text-foreground">{product.label}</span>
+                  <span class="block text-xs leading-relaxed text-muted-foreground">{product.detail}</span>
                 </span>
               </span>
-              <span class="shrink-0 text-sm font-semibold tabular-nums text-foreground">{product.price}</span>
+              <span class="shrink-0 ps-7 text-sm font-semibold tabular-nums text-foreground sm:ps-0">
+                {product.price}
+              </span>
             </label>
           ))
         }

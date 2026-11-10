@@ -7,7 +7,7 @@ import { caliberCheatsReviewPage } from './caliber-cheats-review';
 import { caliberSardPage } from './caliber-sard-anti-cheat';
 
 export type { CaliberPage } from './types';
-export { caliberPricing, siteDisclosure } from './pricing';
+export { caliberPricing } from './pricing';
 
 export const caliberPages: CaliberPage[] = [
   homePage,

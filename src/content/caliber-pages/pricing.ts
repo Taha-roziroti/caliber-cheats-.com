@@ -9,6 +9,3 @@ export const caliberPricing = {
     requiredComponents: ['GREENWARD', 'Static Server', 'AWS'] as const,
   },
 } as const;
-
-export const siteDisclosure =
-  'Some links on this website may be affiliate links. We may earn a commission from qualifying purchases made through these links, at no additional cost to you.';

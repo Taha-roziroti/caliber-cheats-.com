@@ -33,8 +33,11 @@ const figures = figuresForCaliberPage(page);
         <p class="text-sm font-semibold text-foreground">Related pages</p>
         <ul class="mt-2 space-y-2 text-sm">
           {page.internalLinks.map((link) => (
-            <li>
-              <a href={link.href} class="text-primary underline underline-offset-2">
+            <li class="min-w-0">
+              <a
+                href={link.href}
+                class="inline-block max-w-full break-words text-primary underline underline-offset-2"
+              >
                 {link.anchor}
               </a>
             </li>

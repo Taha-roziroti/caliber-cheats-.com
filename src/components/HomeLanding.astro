@@ -7,7 +7,6 @@ import WorkflowSection from './WorkflowSection.astro';
 import HomeGuidesSection from './HomeGuidesSection.astro';
 import SiteFaqSection from './SiteFaqSection.astro';
 import CaliberPageArticle from './content/CaliberPageArticle.astro';
-import AffiliateDisclosure from './AffiliateDisclosure.astro';
 import { getCaliberPage } from '../content/caliber-pages';
 import { faqsFromCaliberPage } from '../utils/caliberPageFaq';
 
@@ -16,14 +15,23 @@ const homeFaqs = faqsFromCaliberPage(homePage, 'home');
 ---
 
 <HeroSection />
-<FeaturesSection />
-<ProductsSection />
-<WhySetupSection />
-<WorkflowSection />
-<HomeGuidesSection />
-<section class="border-y border-border bg-muted/15 py-16 md:py-20">
+<div class="below-fold-section">
+  <FeaturesSection />
+</div>
+<div class="below-fold-section">
+  <ProductsSection />
+</div>
+<div class="below-fold-section">
+  <WhySetupSection />
+</div>
+<div class="below-fold-section">
+  <WorkflowSection />
+</div>
+<div class="below-fold-section">
+  <HomeGuidesSection />
+</div>
+<section class="below-fold-section border-y border-border bg-muted/15 py-16 md:py-20">
   <div class="mx-auto max-w-6xl px-5">
-    <AffiliateDisclosure class="mb-8 max-w-3xl" />
     <CaliberPageArticle page={homePage} skipH1 />
   </div>
 </section>

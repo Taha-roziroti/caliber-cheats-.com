@@ -47,12 +47,12 @@ const isSinglePlan = plans.length === 1;
       >
         {
           plans.map((plan) => (
-            <label class="flex cursor-pointer items-center justify-between gap-3 rounded-xl border border-border bg-background p-3.5 transition-colors has-data-checked:border-primary has-data-checked:bg-primary/10">
+            <label class="flex cursor-pointer flex-col gap-2 rounded-xl border border-border bg-background p-3.5 transition-colors has-data-checked:border-primary has-data-checked:bg-primary/10 sm:flex-row sm:items-center sm:justify-between sm:gap-3">
               <span class="flex min-w-0 items-center gap-3">
-                <RadioGroupItem value={plan.id} variant="primary" />
-                <span class="text-sm font-medium">{plan.label}</span>
+                <RadioGroupItem value={plan.id} variant="primary" class="shrink-0" />
+                <span class="min-w-0 flex-1 text-sm font-medium leading-snug">{plan.label}</span>
               </span>
-              <span class="shrink-0 text-sm font-semibold tabular-nums text-foreground">
+              <span class="shrink-0 ps-7 text-sm font-semibold tabular-nums text-foreground sm:ps-0">
                 {formatPlanPrice(plan.priceUsd)}
               </span>
             </label>

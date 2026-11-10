@@ -1,7 +1,8 @@
 ---
 route: /guides/caliber-sard-anti-cheat/
-seoTitle: 'Caliber SARD Anti-Cheat: Current Overview'
-metaDescription: Learn why Caliber moved from Easy Anti-Cheat to SARD, what the official update confirms, and what to ask before buying third-party tools.
+seoTitle: 'Caliber SARD Anti-Cheat Guide | EAC Transition Facts'
+metaDescription: >-
+  Caliber cheats buyers: learn why SARD replaced Easy Anti-Cheat, what changed in October 2025, and how to verify compatibility before checkout.
 schemaTypes:
   - Article
   - BreadcrumbList

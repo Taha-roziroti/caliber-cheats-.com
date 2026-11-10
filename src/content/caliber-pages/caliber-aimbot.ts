@@ -2,9 +2,9 @@ import type { CaliberPage } from './types';
 
 export const caliberAimbotPage: CaliberPage = {
   slug: '/caliber-aimbot/',
-  seoTitle: 'Caliber Aimbot for PC | Aim & Recoil Features',
+  seoTitle: 'Caliber Aimbot for PC | Smoothing, Recoil & Assist',
   metaDescription:
-    'Explore Caliber aimbot, aim smoothing, auto-aim assistance and recoil control features. Review the available configuration options.',
+    'Caliber cheats aim features explained—smoothing, auto-aim assist and separate recoil controls—with Windows and Cloud DMA requirements noted.',
   h1: 'Caliber Aimbot and Aim Assist Features',
   intro:
     'Accuracy is a major part of Caliber\'s tactical gameplay. Every encounter brings different situations, and the ability to understand how aiming tools are configured is an important part of exploring the available feature selection. Caliber aimbot combines advanced aiming assistance with smoothing and separate recoil-related options. Rather than focusing on a single function, its listed aim feature set brings together several controls designed around different aspects of weapon handling.',
@@ -67,9 +67,9 @@ export const caliberAimbotPage: CaliberPage = {
     },
   ],
   internalLinks: [
-    { href: '/', anchor: 'Explore the complete Caliber cheats package' },
-    { href: '/caliber-esp/', anchor: 'Discover Caliber ESP and radar features' },
-    { href: '/caliber-cheats-price/', anchor: 'Compare Caliber access plans' },
+    { href: '/', anchor: 'Back to the Caliber cheats homepage' },
+    { href: '/caliber-esp/', anchor: 'Pair aim tools with ESP and radar' },
+    { href: '/caliber-cheats-price/', anchor: 'See aimbot plan prices ($35 / $150)' },
   ],
   imageAltText: [
     'Caliber aimbot feature interface',

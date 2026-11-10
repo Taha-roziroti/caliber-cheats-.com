@@ -78,6 +78,7 @@ export function resolveCheckoutHref(href: string): string {
   }
   if (
     href.includes('caliber') ||
+    href.includes('/products/caliber-novaxware') ||
     href.includes('/products/caliber') ||
     href.includes('borderlands-3') ||
     href.includes('/products/borderlands-3') ||

@@ -8,9 +8,9 @@ export const en: Translations = {
   site: {
     name: 'Caliber Cheats',
     domain: 'caliber-cheats.com',
-    title: 'Caliber Cheats for PC | ESP, Aimbot & Plans',
+    title: 'Caliber Cheats for PC | ESP, Aimbot, Radar & Plans',
     description:
-      'Compare listed Caliber ESP, aimbot, radar and recoil features. Review $35/$150 plans, Cloud DMA requirements, and SARD anti-cheat context.',
+      'Caliber cheats for PC: compare listed ESP, aimbot, radar and recoil modules, review Windows requirements, and check monthly or lifetime plans.',
     discord: PRIMARY_CHECKOUT_PATH,
   },
   nav: [
@@ -26,7 +26,7 @@ export const en: Translations = {
     status: 'Caliber — Windows 10 & 11 listings',
     eyebrow: 'Independent Caliber guides',
     titleLine1: 'Caliber Cheats',
-    titleLine2: 'ESP, aimbot & radar',
+    titleLine2: 'ESP, aimbot, radar & plans',
     subtitle:
       'Listed Caliber ESP, aimbot, radar, and recoil modules for PC. Cloud DMA is sold separately and is required on supported builds—we do not promise undetected status.',
     ctaPrimary: 'Buy now',
@@ -451,7 +451,7 @@ export const en: Translations = {
       'Caliber ESP, aimbot, and radar guides plus Cloud DMA setup resources at caliber-cheats.com.',
     exploreLinks: [
       { href: '/#features', label: 'Feature overview', ariaLabel: 'Features' },
-      { href: '/caliber-cheats-price/', label: 'Cheat plans', ariaLabel: 'Pricing' },
+      { href: '/caliber-cheats-price/', label: 'Plan pricing', ariaLabel: 'Pricing' },
       { href: '/#products', label: 'All products', ariaLabel: 'Products' },
       { href: '/guides/cloud-dma-setup/', label: 'Setup walkthrough', ariaLabel: 'Setup guide' },
       { href: '/faq/', label: 'Pre-purchase FAQ', ariaLabel: 'FAQ' },
@@ -464,9 +464,9 @@ export const en: Translations = {
   },
   legalPages: {
     about: {
-      title: 'About Caliber Cheats — guides, pricing & cloud',
+      title: 'Guides pricing for Caliber Cheats',
       description:
-        'Caliber Cheats publishes PC feature guides, Cloud DMA setup, pricing, and support resources at caliber-cheats.com.',
+        'Guides pricing for Caliber cheats, Cloud DMA setup walkthroughs and compatibility notes—what caliber-cheats.com publishes and how checkout works.',
       sections: [
         {
           heading: 'Caliber Cheats: Who we are',

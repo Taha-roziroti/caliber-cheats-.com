@@ -2,10 +2,10 @@ import type { CaliberPage } from './types';
 
 export const homePage: CaliberPage = {
   slug: '/',
-  seoTitle: 'Caliber Cheats for PC | ESP, Aimbot & Plans',
+  seoTitle: 'Caliber Cheats for PC | ESP, Aimbot, Radar & Plans',
   metaDescription:
-    'Explore Caliber ESP, aimbot, radar and recoil features. Compare available plans, PC requirements and everything included.',
-  h1: 'Caliber Cheats for PC',
+    'Caliber cheats for PC: compare listed ESP, aimbot, radar and recoil modules, review Windows requirements, and check monthly or lifetime plans.',
+  h1: 'Caliber Cheats for PC — ESP, Aimbot & Plans',
   intro:
     'Caliber is all about coordination, awareness, and making the right decisions when every encounter matters. Having access to more information can change how you approach each match, which is why Caliber cheats have become a popular search among players exploring additional gameplay features. Caliber Cheats brings together an extensive feature selection, including player ESP, weapon and equipment visibility, radar, advanced aim assistance, and recoil control. Whether you\'re looking into a Caliber hack for its visual tools or exploring its aiming options, this is where you can get a closer look at the available features.',
   sections: [
@@ -75,9 +75,9 @@ export const homePage: CaliberPage = {
     },
   ],
   internalLinks: [
-    { href: '/caliber-esp/', anchor: 'Explore Caliber ESP features' },
-    { href: '/caliber-aimbot/', anchor: 'Discover Caliber aimbot options' },
-    { href: '/caliber-cheats-price/', anchor: 'Compare Caliber pricing plans' },
+    { href: '/caliber-esp/', anchor: 'Player and weapon ESP breakdown' },
+    { href: '/caliber-aimbot/', anchor: 'Aim smoothing and recoil controls' },
+    { href: '/caliber-cheats-price/', anchor: '$35 monthly versus $150 lifetime' },
   ],
   imageAltText: [
     'Four tactical Caliber operators in combat gear with NVGs and assault rifles',

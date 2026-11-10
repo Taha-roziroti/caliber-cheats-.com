@@ -2,9 +2,9 @@ import type { CaliberPage } from './types';
 
 export const caliberSardPage: CaliberPage = {
   slug: '/guides/caliber-sard-anti-cheat/',
-  seoTitle: 'Caliber SARD Anti-Cheat: Current Overview',
+  seoTitle: 'Caliber SARD Anti-Cheat Guide | EAC Transition Facts',
   metaDescription:
-    'Learn about Caliber SARD anti-cheat, its introduction, the move from EAC and what players should know about current game updates.',
+    'Caliber cheats buyers: learn why SARD replaced Easy Anti-Cheat, what changed in October 2025, and how to verify compatibility before checkout.',
   h1: 'Caliber SARD Anti-Cheat: What Players Should Know',
   intro:
     'Caliber has evolved considerably, and its technical environment is an important part of keeping up with the game. One of the most notable changes was the introduction of SARD as the game\'s anti-cheat system. Whether you\'re following Caliber updates, researching its anti-cheat system, or comparing the technical requirements of different PC setups, understanding what SARD is and when it was introduced provides useful context.',
@@ -82,9 +82,9 @@ export const caliberSardPage: CaliberPage = {
     },
   ],
   internalLinks: [
-    { href: '/', anchor: 'Explore Caliber cheats and features' },
-    { href: '/caliber-cheats-review/', anchor: 'Read the Caliber feature review' },
-    { href: '/caliber-cheats-price/', anchor: 'View Caliber pricing and setup options' },
+    { href: '/', anchor: 'Caliber cheats hub after SARD changes' },
+    { href: '/caliber-cheats-review/', anchor: 'Review listed tools post-SARD' },
+    { href: '/caliber-cheats-price/', anchor: 'Pricing with Cloud DMA separated' },
   ],
   imageAltText: [
     'Caliber SARD anti-cheat information',

@@ -167,7 +167,15 @@ const showShareLinks = sharePaths.has(pathname.endsWith('/') ? pathname : `${pat
     <main id="main-content">
       <slot />
     </main>
-    {showShareLinks ? <ShareLinks path={pathname} shareTitle={title} /> : null}
+    {
+      showShareLinks ? (
+        <ShareLinks
+          path={pathname}
+          shareTitle={title}
+          class="below-fold-section"
+        />
+      ) : null
+    }
     <Footer logoAlt={logoAlt} />
     <script>
       import '../scripts/site.ts';

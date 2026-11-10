@@ -1,7 +1,8 @@
 ---
 route: /
-seoTitle: Caliber Cheats for PC | ESP, Aimbot & Plans
-metaDescription: Compare the listed Caliber ESP, aim, radar and recoil features, review PC requirements, and check current plans before choosing an option.
+seoTitle: Caliber Cheats for PC | ESP, Aimbot, Radar & Plans
+metaDescription: >-
+  Caliber cheats for PC: compare listed ESP, aimbot, radar and recoil modules, review Windows requirements, and check monthly or lifetime plans.
 schemaTypes:
   - Product
   - Offer

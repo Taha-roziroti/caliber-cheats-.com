@@ -2,9 +2,9 @@ import type { CaliberPage } from './types';
 
 export const caliberCheatsReviewPage: CaliberPage = {
   slug: '/caliber-cheats-review/',
-  seoTitle: 'Caliber Cheats Review & Feature Comparison',
+  seoTitle: 'Caliber Cheats Review | Features, Pricing & Setup',
   metaDescription:
-    'Explore our Caliber cheats review covering ESP, aimbot, radar, recoil features, pricing and PC requirements.',
+    'Independent Caliber cheats review of ESP, aimbot, radar and recoil tools, plan lengths, Cloud DMA costs and Windows setup—pros and trade-offs.',
   h1: 'Caliber Cheats Review and Feature Comparison',
   intro:
     'Looking at a Caliber cheat involves more than simply checking a feature list. The visual tools, aiming options, access duration, and system requirements all contribute to the overall picture. This Caliber cheats review takes a closer look at the listed functionality, how the different features fit together, and what to consider when comparing the available plans. From player ESP and radar to advanced aim assistance, here\'s a detailed breakdown of the product.',
@@ -83,9 +83,9 @@ export const caliberCheatsReviewPage: CaliberPage = {
     },
   ],
   internalLinks: [
-    { href: '/', anchor: 'Explore the full Caliber cheats package' },
-    { href: '/caliber-esp/', anchor: 'See the complete Caliber ESP breakdown' },
-    { href: '/caliber-cheats-price/', anchor: 'Compare Caliber monthly and lifetime plans' },
+    { href: '/', anchor: 'Main Caliber cheats overview page' },
+    { href: '/caliber-esp/', anchor: 'Deep dive: wallhack and ESP layers' },
+    { href: '/caliber-cheats-price/', anchor: 'Open the pricing and Cloud DMA page' },
   ],
   imageAltText: [
     'Caliber cheats feature review',

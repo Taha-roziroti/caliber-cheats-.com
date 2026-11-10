@@ -2,13 +2,18 @@
 import { t } from '../i18n';
 import { PRIMARY_CHECKOUT_PATH } from '../config/checkout';
 import { borderlandsHeroSlides } from '../data/borderlands3Landing';
+import { CALIBER_IMAGE } from '../data/caliberMedia';
 import { compatibilityIcons, heroStatIcons, heroStatusPills } from '../data/sectionIcons';
+import { defaultWebpSrc, HERO_IMAGE_WIDTHS } from '../utils/responsiveImage';
 import ImageSlider from './ImageSlider.astro';
 import Icon from './icons/Icon.astro';
 import { Button } from '@/components/starwind/button';
 import { Badge } from '@/components/starwind/badge';
 
 const h = t.hero;
+
+const heroMobileBg = defaultWebpSrc(CALIBER_IMAGE.heroBanner, HERO_IMAGE_WIDTHS);
+const heroMobileBgAlt = borderlandsHeroSlides[0]?.alt ?? 'Caliber Cheats tactical squad hero';
 
 const heroMarqueePills = [
   ...heroStatusPills,
@@ -21,17 +26,27 @@ const heroMarqueePills = [
 
 <section
   id="hero"
-  class="relative overflow-hidden border-b border-border"
+  class="hero-section relative overflow-hidden border-b border-border"
   aria-labelledby="hero-title"
 >
-  <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,var(--primary)_0%,transparent_55%)] opacity-20" aria-hidden="true" />
+  <div
+    class="hero-section__photo lg:hidden"
+    role="img"
+    aria-label={heroMobileBgAlt}
+    style={`background-image: url('${heroMobileBg}')`}
+  />
+  <div class="hero-section__photo-overlay pointer-events-none lg:hidden" aria-hidden="true" />
+  <div class="pointer-events-none absolute inset-0 z-[1] bg-[radial-gradient(ellipse_at_top,var(--primary)_0%,transparent_55%)] opacity-20" aria-hidden="true" />
 
-  <div class="relative mx-auto flex max-w-6xl flex-col justify-center px-5 pb-8 pt-6 md:pb-10 md:pt-8">
+  <div class="relative z-10 mx-auto flex max-w-6xl flex-col justify-center px-5 pb-8 pt-6 md:pb-10 md:pt-8">
     <div class="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
       <div class="w-full max-w-xl space-y-6 text-left md:space-y-7 lg:max-w-2xl">
         <Badge variant="secondary" class="normal-case tracking-normal">{h.eyebrow}</Badge>
 
-        <h1 id="hero-title" class="text-4xl font-bold leading-[1.08] tracking-tight md:text-5xl lg:text-[3.25rem]">
+        <h1
+          id="hero-title"
+          class="min-w-0 max-w-full break-words text-4xl font-bold leading-[1.08] tracking-tight text-balance md:text-5xl lg:text-[3.25rem]"
+        >
           <span class="block text-foreground">{h.titleLine1}</span>
           <span class="mt-1 block text-primary">{h.titleLine2}</span>
         </h1>

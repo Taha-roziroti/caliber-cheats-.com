@@ -1,7 +1,8 @@
 ---
 route: /caliber-cheats-review/
-seoTitle: Caliber Cheats Review & Feature Comparison
-metaDescription: A transparent look at Caliber cheat features, pricing, and trade-offs. Compare the product details before deciding whether it fits.
+seoTitle: Caliber Cheats Review | Features, Pricing & Setup
+metaDescription: >-
+  Independent Caliber cheats review of ESP, aimbot, radar and recoil tools, plan lengths, Cloud DMA costs and Windows setup—pros and trade-offs.
 schemaTypes:
   - Article
   - BreadcrumbList

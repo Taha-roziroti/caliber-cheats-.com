@@ -4,12 +4,31 @@ import sharp from 'sharp';
 
 const root = process.cwd();
 const publicDir = path.join(root, 'public');
-const source = path.join(publicDir, 'images', 'placeholders', 'media.svg');
+const source = path.join(publicDir, 'brand', 'caliber-mark.jpg');
 
-const ICON_BG = { r: 10, g: 13, b: 16, alpha: 1 };
+if (!fs.existsSync(source)) {
+  console.error(`Brand source missing: ${source}`);
+  process.exit(1);
+}
+
+const meta = await sharp(source).metadata();
+const emblemSide = meta.height ?? 120;
+const cropWidth = Math.min(emblemSide, meta.width ?? emblemSide);
+
+/** Square crop of the circular Caliber mark (left of the wordmark). */
+function emblemSource() {
+  return sharp(source).extract({
+    left: 0,
+    top: 0,
+    width: cropWidth,
+    height: emblemSide,
+  });
+}
+
+const ICON_BG = { r: 255, g: 255, b: 255, alpha: 1 };
 
 function squarePng(size) {
-  return sharp(source)
+  return emblemSource()
     .resize(size, size, {
       fit: 'contain',
       background: ICON_BG,
@@ -24,10 +43,10 @@ await squarePng(32).toFile(path.join(publicDir, 'favicon.ico'));
 
 const png32 = await squarePng(32).toBuffer();
 const base64 = png32.toString('base64');
-const faviconSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Site Template">
+const faviconSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Caliber Cheats">
   <image href="data:image/png;base64,${base64}" width="32" height="32"/>
 </svg>
 `;
 fs.writeFileSync(path.join(publicDir, 'favicon.svg'), faviconSvg, 'utf8');
 
-console.log('Brand icons generated from placeholder media.svg');
+console.log('Brand icons generated from public/brand/caliber-mark.jpg');

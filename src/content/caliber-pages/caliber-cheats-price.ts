@@ -2,10 +2,10 @@ import type { CaliberPage } from './types';
 
 export const caliberCheatsPricePage: CaliberPage = {
   slug: '/caliber-cheats-price/',
-  seoTitle: 'Caliber Cheats Price | Monthly vs. Lifetime',
+  seoTitle: 'Caliber Cheats Price | Monthly & Lifetime Plans',
   metaDescription:
-    'Compare Caliber cheats pricing, including 31-day and lifetime access. Review Cloud DMA requirements and current plan options.',
-  h1: 'Caliber Cheats Price and Plan Options',
+    'Caliber cheats plans at $35 for 31 days or $150 lifetime, plus separate Cloud DMA pricing. Compare totals, requirements and checkout steps.',
+  h1: 'Caliber Cheats Price: Monthly and Lifetime Plans',
   intro:
     'Choosing the right Caliber plan starts with understanding what\'s available and how the different access options compare. Whether you\'re looking for a shorter access period or something designed for longer-term use, having the pricing and setup information in one place makes the decision much easier. The listed Caliber options include a 31-day subscription and lifetime access. Below, you\'ll find a breakdown of the available plans, their durations, and the additional setup information associated with the complete feature selection.',
   sections: [
@@ -77,9 +77,9 @@ export const caliberCheatsPricePage: CaliberPage = {
     },
   ],
   internalLinks: [
-    { href: '/', anchor: 'View all Caliber cheat features' },
-    { href: '/caliber-cheats-review/', anchor: 'Read the Caliber feature review' },
-    { href: '/guides/caliber-sard-anti-cheat/', anchor: 'Read the Caliber SARD guide' },
+    { href: '/', anchor: 'What each Caliber module includes' },
+    { href: '/caliber-cheats-review/', anchor: 'Read features before picking a plan' },
+    { href: '/guides/caliber-sard-anti-cheat/', anchor: 'SARD anti-cheat update timeline' },
   ],
   imageAltText: [
     'Caliber cheats monthly and lifetime pricing',

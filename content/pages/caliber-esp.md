@@ -1,7 +1,8 @@
 ---
 route: /caliber-esp/
-seoTitle: Caliber ESP for PC | Player & Weapon Features
-metaDescription: See how the listed Caliber ESP, weapon markers, and radar features are described. Compare product details and check current availability.
+seoTitle: Caliber ESP for PC | Player, Weapon & Radar Tools
+metaDescription: >-
+  Caliber cheats ESP overview: player loadouts, weapon markers, gadget visibility and radar overlays—what the listing includes before you buy.
 schemaTypes:
   - Article
   - BreadcrumbList

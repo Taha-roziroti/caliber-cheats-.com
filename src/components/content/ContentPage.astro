@@ -15,7 +15,6 @@ import {
 import { Button } from '@/components/starwind/button';
 import { loadContentPage } from '../../utils/loadContentPage';
 import SiteFaqSection from '../SiteFaqSection.astro';
-import AffiliateDisclosure from '../AffiliateDisclosure.astro';
 import { faqFilterTopicsForItems, getContentPageFaqs } from '../../data/faq';
 
 interface Props {
@@ -109,7 +108,6 @@ const pageFaqTopics = pageFaqs ? faqFilterTopicsForItems(pageFaqs) : [];
               ) : null}
               <ContentFigures figures={data.figures} />
             </div>
-            <AffiliateDisclosure class="not-prose mt-6" />
             <div class="not-prose mt-8 lg:hidden">
               <CheckoutProductPicker defaultProduct={sidebarDefaultProduct} />
             </div>
@@ -118,7 +116,6 @@ const pageFaqTopics = pageFaqs ? faqFilterTopicsForItems(pageFaqs) : [];
             ) : null}
           </div>
           <div class="hidden lg:block lg:space-y-4">
-            <AffiliateDisclosure />
             <CheckoutProductPicker defaultProduct={sidebarDefaultProduct} />
           </div>
         </div>
@@ -128,7 +125,6 @@ const pageFaqTopics = pageFaqs ? faqFilterTopicsForItems(pageFaqs) : [];
         <div class="mx-auto max-w-6xl px-5">
           <Breadcrumbs items={breadcrumbs} class="mb-6 md:mb-8" />
           <div class="content-markdown mt-2 max-w-3xl">
-            <AffiliateDisclosure class="not-prose mb-6" />
             {FullContent ? <FullContent /> : null}
             <ContentFigures figures={data.figures} />
             {data.showAdditionalCostsCallout ? (
@@ -170,18 +166,10 @@ const pageFaqTopics = pageFaqs ? faqFilterTopicsForItems(pageFaqs) : [];
 
 <style is:global>
   .content-markdown :where(h1) {
-    font-family: var(--font-heading, inherit);
-    font-size: clamp(1.875rem, 4vw, 2.5rem);
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    line-height: 1.12;
     margin-bottom: 1rem;
     color: var(--foreground);
   }
   .content-markdown :where(h2) {
-    font-family: var(--font-heading, inherit);
-    font-size: 1.375rem;
-    font-weight: 700;
     margin-top: 2.5rem;
     margin-bottom: 0.75rem;
     scroll-margin-top: 7rem;

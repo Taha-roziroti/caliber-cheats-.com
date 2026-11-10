@@ -83,18 +83,18 @@ export const borderlandsGuideCards = [
     title: 'Caliber cheats price',
     desc: 'Monthly ($35) and lifetime ($150) plans — verified Nov 11, 2026; recheck before checkout.',
     href: '/caliber-cheats-price/',
-    readLabel: 'Compare pricing',
+    readLabel: 'Open monthly vs lifetime page',
   },
   {
     title: 'Caliber ESP features',
     desc: 'Player, weapon, gadget ESP, and radar on one page for related feature searches.',
     href: '/caliber-esp/',
-    readLabel: 'Read ESP guide',
+    readLabel: 'Walk through ESP layers',
   },
   {
     title: 'Caliber SARD anti-cheat',
     desc: 'Why EAC bypass claims may be outdated after the October 2025 announcement.',
     href: '/guides/caliber-sard-anti-cheat/',
-    readLabel: 'Read SARD guide',
+    readLabel: 'Follow the SARD timeline',
   },
 ] as const;
