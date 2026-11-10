@@ -54,6 +54,7 @@ const errors = {
   technical: [],
   hygiene: [],
   images: [],
+  spelling: [],
 };
 
 function fail(category, message) {
@@ -239,10 +240,27 @@ else if (fs.readFileSync(sitemap, 'utf8').includes('example.com')) {
   fail('technical', 'sitemap references example.com');
 }
 
+const spellTargets = [
+  'src/content/caliber-pages',
+  'src/config/pageSeo.ts',
+  'src/data/site.ts',
+  'src/data/faq.ts',
+];
+try {
+  execSync(`npx cspell --no-progress ${spellTargets.join(' ')}`, {
+    stdio: 'pipe',
+    encoding: 'utf8',
+    cwd: projectRoot,
+  });
+} catch (e) {
+  const out = `${e.stdout ?? ''}\n${e.stderr ?? ''}`.trim();
+  fail('spelling', `cspell failed:\n${out.slice(0, 4000)}`);
+}
+
 const all = Object.entries(errors).flatMap(([cat, list]) => list.map((m) => ({ cat, m })));
 if (all.length) {
   console.error('seo-audit FAILED\n');
-  for (const cat of ['build', 'technical', 'links', 'hygiene', 'images']) {
+  for (const cat of ['build', 'technical', 'links', 'hygiene', 'images', 'spelling']) {
     const list = errors[cat];
     if (!list.length) continue;
     console.error(`## ${cat} (${list.length})`);

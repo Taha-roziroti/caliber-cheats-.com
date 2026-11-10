@@ -42,7 +42,7 @@ export const en: Translations = {
   },
   features: {
     eyebrow: 'Cheat features',
-    title: 'Primary product modules you can review before checkout',
+    title: 'Caliber modules you can review before checkout',
     subtitle:
       'Player ESP, aim assistance, radar, and recoil options from the current Caliber listing—no unrelated game bundles.',
     items: [
@@ -118,15 +118,15 @@ export const en: Translations = {
   },
   whyUs: {
     eyebrow: 'Why us',
-    title: 'A Primary product–focused catalog—not a mixed-game marketplace',
+    title: 'A Caliber–focused catalog—not a mixed-game marketplace',
     subtitle:
-      'Plans, Cloud DMA, and HWID utilities stay on Primary product PC with listed features only and support you can reach before checkout.',
+      'Plans, Cloud DMA, and HWID utilities stay on Caliber PC with listed features only and support you can reach before checkout.',
     usLabel: 'Caliber Cheats',
     otherLabel: 'Typical listing',
     rows: [
       {
-        title: 'Primary product only',
-        desc: 'Pricing, guides, and checkout paths stay on Primary product PC instead of bundling unrelated titles.',
+        title: 'Caliber only',
+        desc: 'Pricing, guides, and checkout paths stay on Caliber PC instead of bundling unrelated titles.',
       },
       {
         title: 'Listed features only',
@@ -153,7 +153,7 @@ export const en: Translations = {
       {
         value: '$35',
         title: 'Monthly plan',
-        desc: '31-day Primary product cheat access billed in USD.',
+        desc: '31-day Caliber cheat access billed in USD.',
       },
       {
         value: '$150',
@@ -181,7 +181,7 @@ export const en: Translations = {
       {
         step: 'Step 1',
         title: 'Confirm status and requirements',
-        desc: 'Review the PC requirements guide and Cloud DMA notes before you buy or launch Primary product.',
+        desc: 'Review the PC requirements guide and Cloud DMA notes before you buy or launch Caliber.',
       },
       {
         step: 'Step 2',
@@ -197,7 +197,7 @@ export const en: Translations = {
   },
   compatibility: {
     eyebrow: 'Platform support',
-    title: 'Built for Primary product on Windows PC.',
+    title: 'Built for Caliber on Windows PC.',
     subtitle: 'Confirm Steam or official client support and Cloud DMA prerequisites before launch.',
     items: ['Windows 10 & 11', 'Steam client', 'Official client', 'Cloud DMA option', 'HWID utility', 'Secure checkout', 'Setup guides', 'Email support'],
   },
@@ -223,7 +223,7 @@ export const en: Translations = {
   },
   products: {
     eyebrow: 'Shop',
-    title: 'Primary product products',
+    title: 'Caliber products',
     subtitle: 'Main cheat plans, HWID Spoofer, and Cloud DMA license—three focused utilities for PC.',
     viewAll: 'View all products',
     get: 'Get',
@@ -326,7 +326,7 @@ export const en: Translations = {
     titleHighlight: 'saved config.',
     titleAfter: '',
     subtitle:
-      'A straight path from reviewing Primary product compatibility to a profile you can reuse every session.',
+      'A straight path from reviewing Caliber compatibility to a profile you can reuse every session.',
     ctaLabel: 'Compare plans',
     ctaHref: '/caliber-cheats-price/',
     ctaSecondary: 'Read setup FAQ',
@@ -336,7 +336,7 @@ export const en: Translations = {
         num: '01',
         phase: 'Before purchase',
         title: 'Check requirements',
-        desc: 'Read the PC requirements and Cloud DMA guides after any Primary product or Windows update.',
+        desc: 'Read the PC requirements and Cloud DMA guides after any Caliber or Windows update.',
       },
       {
         num: '02',
@@ -404,7 +404,7 @@ export const en: Translations = {
     ticketTitle: 'Support: Include in your ticket',
     ticketItems: [
       { title: 'Order email', desc: 'The address used at checkout via our secure partner.' },
-      { title: 'Platform', desc: 'Windows 10 or 11, Primary product client (Steam or Official), and Cloud DMA status.' },
+      { title: 'Platform', desc: 'Windows 10 or 11, Caliber client (Steam or Official), and Cloud DMA status.' },
       { title: 'Error detail', desc: 'Screenshot or exact message from the loader, Hyper-V, or game client.' },
     ],
   },
@@ -473,16 +473,16 @@ export const en: Translations = {
           paragraphs: [
             'Caliber Cheats is an independent resource for PC players exploring soft aim, enemy and loot ESP, radar, and related configuration options. We publish pricing, system requirements, and Cloud DMA setup guides so you can evaluate the product before checkout.',
             'We are not affiliated with, endorsed by, or sponsored by the game publisher or its licensors. Product names are used for identification only.',
-            'Primary product cheats content on this site explains supported features, plan lengths, and the separate Cloud DMA license—without claiming official publisher approval.',
+            'Caliber cheats content on this site explains supported features, plan lengths, and the separate Cloud DMA license—without claiming official publisher approval.',
             'Listed offers on this site include a $35 monthly cheat plan, a $150 lifetime cheat plan, and a $50 lifetime Cloud DMA license, each with separate checkout flows.',
           ],
         },
         {
           heading: 'What we publish',
           paragraphs: [
-            'Our site covers Primary product cheat plans (monthly and lifetime), the Cloud DMA infrastructure license, Hyper-V setup steps, and pre-purchase FAQ. Content is updated when requirements or checkout flows change.',
+            'Our site covers Caliber cheat plans (monthly and lifetime), the Cloud DMA infrastructure license, Hyper-V setup steps, and pre-purchase FAQ. Content is updated when requirements or checkout flows change.',
             'Review the system requirements and Cloud DMA pages before purchase so your Windows PC matches the listed configuration.',
-            'Primary product cheats guides focus on Windows 10 and 11, supported clients, and realistic setup order: requirements, Cloud DMA, then cheat checkout.',
+            'Caliber cheats guides focus on Windows 10 and 11, supported clients, and realistic setup order: requirements, Cloud DMA, then cheat checkout.',
           ],
         },
         {
@@ -532,7 +532,7 @@ export const en: Translations = {
     terms: {
       title: 'Terms & Conditions — purchase, license, refund policy details',
       description:
-        'Purchase, license, refund, and use terms for Primary product cheat and Cloud DMA products at caliber-cheats.com.',
+        'Purchase, license, refund, and use terms for Caliber cheat and Cloud DMA products at caliber-cheats.com.',
       sections: [
         {
           heading: 'Terms: agreement and purchases',
@@ -543,7 +543,7 @@ export const en: Translations = {
         {
           heading: 'What you purchase',
           paragraphs: [
-            'We sell access to Primary product cheat software (monthly or lifetime plans) and a separate Cloud DMA infrastructure license, delivered through external checkout and license delivery flows for supported Windows PCs.',
+            'We sell access to Caliber cheat software (monthly or lifetime plans) and a separate Cloud DMA infrastructure license, delivered through external checkout and license delivery flows for supported Windows PCs.',
             'Feature lists on pricing and product pages describe what is included at the time of purchase. Modules or requirements can change when the game or supported configuration updates.',
           ],
         },
@@ -551,7 +551,7 @@ export const en: Translations = {
           heading: 'Checkout and delivery',
           paragraphs: [
             'Payment and license delivery run on external checkout pages. caliber-cheats.com does not process or store payment card numbers.',
-            'After purchase, follow instructions from your order email and the Cloud DMA setup guide before launching Primary product.',
+            'After purchase, follow instructions from your order email and the Cloud DMA setup guide before launching Caliber.',
           ],
         },
         {
@@ -571,7 +571,7 @@ export const en: Translations = {
         {
           heading: 'Availability and risk',
           paragraphs: [
-            'Third-party tools for Primary product can conflict with game updates and anti-cheat or publisher enforcement. You use this software at your own risk, including possible account action.',
+            'Third-party tools for Caliber can conflict with game updates and anti-cheat or publisher enforcement. You use this software at your own risk, including possible account action.',
             'Review requirements and setup guides before every session, especially after game patches.',
           ],
         },
